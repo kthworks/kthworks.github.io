@@ -20,7 +20,7 @@ title_separator          : "-"
 subtitle                 : "Study & Share about tech and coding "
 name                     : Taeham
 email                     : kthwork9934@gmail.com
-description              : 공부하고, 기록하고, 공유합니다 : )
+description              : "공부하고, 기록하고, 공유합니다 : )"
 url                      : https://kthworks.github.io/
 baseurl                  : ''
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
