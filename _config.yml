@@ -15,11 +15,11 @@ remote_theme      : "mmistakes/minimal-mistakes@4.21.0
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-title                    : Taeham's Coding Blog
+title                    : "Taeham's Coding Blog"
 title_separator          : "-"
-subtitle                 : 
-name                     : Taeham
-email                     : kthwork9934@gmail.com
+subtitle                 : ""
+name                     : "Taeham"
+email                     : "kthwork9934@gmail.com"
 description              : "An amazing website."
 url                      : "https://kthworks.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
