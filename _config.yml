@@ -94,15 +94,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Taeham"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "공부하고, 기록하고, 공유합니다 : )"
+  location         : "Gangnam-gu, Seoul, Republic of Korea"
+  email            : kthwork9934@gmail.com
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "kthwork9934@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
