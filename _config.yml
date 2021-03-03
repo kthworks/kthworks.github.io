@@ -19,8 +19,8 @@ title                    : "Taeham's Coding Blog"
 title_separator          : "-"
 subtitle                 : "Study & Share about tech and coding "
 name                     : Taeham
-email                     : kthwork9934@gmail.com
-description              : "공부하고, 기록하고, 공유합니다 : )"
+email                     : #kthwork9934@gmail.com
+description              : #"공부하고, 기록하고, 공유합니다 : )"
 url                      : https://kthworks.github.io/
 baseurl                  : ''
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -97,8 +97,8 @@ author:
   name             : "Taeham"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "공부하고, 기록하고, 공유합니다 : )"
-  location         : "Gangnam-gu, Seoul, Republic of Korea"
-  email            : kthwork9934@gmail.com
+  location         : "서울특별시 강남구"
+  email            : #kthwork9934@gmail.com
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
