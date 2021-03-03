@@ -94,10 +94,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Taeham"
+  name             : "Taehyoung Kim"
   avatar           : "/assets/images/cover.jpg"
   bio              : "공부하고, 기록하고, 공유합니다 : )"
-  location         : "서울특별시 강남구"
+  location         : "Seoul, South Korea"
   email            : #kthwork9934@gmail.com
   links:
     - label: "kthwork9934@gmail.com"
