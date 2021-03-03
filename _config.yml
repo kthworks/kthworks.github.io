@@ -95,7 +95,7 @@ analytics:
 # Site Author
 author:
   name             : "Taeham"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/cover.jpg"
   bio              : "공부하고, 기록하고, 공유합니다 : )"
   location         : "서울특별시 강남구"
   email            : #kthwork9934@gmail.com
