@@ -100,7 +100,7 @@ author:
   location         : "서울특별시 강남구"
   email            : #kthwork9934@gmail.com
   links:
-    - label: "Email"
+    - label: "kthwork9934@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
       url: "kthwork9934@gmail.com"
     - label: "Website"
