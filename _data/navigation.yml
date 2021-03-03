@@ -1,11 +1,16 @@
 # main links
 main:
+  - title: "Home"
+    url: /home/
+
+  - title: "Data science"
+    url: /data_science/
+
+  - title: "All posts"
+    url: /all_posts/
+
   - title: "About"
     url: /about/
-
-  - title: "Contents"
-    url: /contents/
-
 
 
   # - title: "About"
