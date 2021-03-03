@@ -1,5 +1,5 @@
 ---
-title: "About"
-permalink: https://kthworks.github.io/
+title: "Home"
+permalink: /home/
 layout: single
 ---

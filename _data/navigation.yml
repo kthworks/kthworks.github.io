@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Home"
-    url: https://kthworks.github.io/
+    url: /home/
 
   - title: "Data science"
     url: /data_science/
