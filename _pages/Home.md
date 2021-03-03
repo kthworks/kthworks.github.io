@@ -1,5 +1,5 @@
 ---
 title: "Home"
-permalink: /home/
+permalink: ''
 layout: single
 ---
