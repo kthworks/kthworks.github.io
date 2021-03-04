@@ -1,13 +1,12 @@
 
 ---
-layout : single
+layout : post
 title: "Feature Importance"
 excerpt: "Feature Importance의 개념 및 간단한 Python 예제 실습"
 
 toc: true
 toc_sticky: true
 ---
-
 
 # Feature importance의 개념 및 간단한 Python 실습 예제
 
