@@ -1,14 +1,11 @@
-
----   
-layout: single   
-title: "Feature Importance"    
-
-toc: true   
-toc_sticky:  true  
+---
+title: "Feature Importance"
+layout: single
+toc: true
+toc_sticky: true
 ---
 
-
-# Feature importance의 개념 및 간단한 Python 실습 예제
+## Feature importance의 개념 및 간단한 Python 실습 예제
 
 안녕하세요, 태햄입니다.   
 첫 포스팅 주제는 __`Feature importance`__ 입니다.   
@@ -16,14 +13,14 @@ toc_sticky:  true
 
 전반적인 내용은 [이 곳](https://machinelearningmastery.com/calculate-feature-importance-with-python/) 을 참고했습니다. 
 
-## Feature importance란?  
+### Feature importance란?  
 
 이 곳을 찾아오신 분이라면 한번 쯤 Data로부터 Feature를 뽑고 Machine learning (ML) 혹은 Deep Learning (DL)을 이용하여 모델을 구축하여 학습시킨 경험이 있으실텐데요, 이 과정에서 들었던 의문이 있으셨을 겁니다.  
 
 __*어떤 Feature가 이 모델에서 중요한 역할을 하는 Feature일까?*__
 
 우리가 Model을 학습 시킬 때, Model에게 도움을 많이 줄 수 있는 Feature들만 최대한 확보하고 불필요한 정보는 학습에 사용하지 않는 것이 가장 현명한 방법이 되겠죠? 
-  
+
 __Feature importance__ 는 __모델에 사용된 Feature들 중 모델의 학습에 기여한 정도에 따른 중요도__ 라고 할 수 있습니다.  
 특정 Feature가 모델의 정확도를 크게 높여준다면 이 Feature의 중요도 (importance) 또한 당연히 높겠죠?  
 Feature importance를 계산하는 방법은 모델에 따라 다양하지만, 오늘은 크게 세 가지를 소개해드리려고 합니다.
@@ -51,7 +48,7 @@ print(sklearn.__version__)
 ```
 
     0.24.1
-    
+
 
 버전이 0.22.1 미만이신분들은 아래와 같이 버전 업데이트를 해주시면 됩니다.  
 저는 업데이트를 해두어서 이미 0.24.1 버전으로 업그레이드가 되었다고 나오네요 ㅎㅎ
@@ -68,7 +65,6 @@ pip install --upgrade sklearn
     Requirement already satisfied: numpy>=1.13.3 in c:\users\imedisynrnd2\appdata\roaming\python\python36\site-packages (from scikit-learn->sklearn) (1.16.5)
     Requirement already satisfied: threadpoolctl>=2.0.0 in c:\users\imedisynrnd2\appdata\local\programs\python\python36\lib\site-packages (from scikit-learn->sklearn) (2.1.0)
     Note: you may need to restart the kernel to use updated packages.
-    
 
 ## Regression Feature Importance
 
@@ -77,8 +73,6 @@ pip install --upgrade sklearn
 먼저, `__make_regression()__` 함수를 이용해서 심플한 linear regression 모델에 쓰일 데이터를 생성해줍니다.  
 총 1000개의 샘플을 만들고, Feature 개수는 중요한 feature와 중요하지 않은 feature를 각각 5개씩 무작위로 생성해줍니다.  
 target data인 y를 그려보면 아래와 같이 생겼네요.
-
-
 
 ```python
 # Make regression dataset
@@ -97,11 +91,8 @@ pyplot.show()
 ```
 
     (1000, 10) (1000,)
-    
 
-
-![png](output_5_1.png)
-
+![output_5_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_5_1.png)
 
 다음으로, model에 내장되어 있는 `model.coef_` 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
 여기서 회귀 계수란, Linear Model  $Y = b_{0} + b_{1}X_{1} + b_{2}X_{2} \cdots$ 에서 $b_{1}, b_{2}, \cdots$ 에 해당하는 parameter를 말합니다.  
@@ -141,10 +132,10 @@ pyplot.show()
     Feature: 7, Score: 3.28535
     Feature: 8, Score: 0.00000
     Feature: 9, Score: -0.00000
-    
 
 
-![png](output_7_1.png)
+
+![output_7_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_7_1.png)
 
 
 이 중에 중요한 5개의 Feature만 뽑아서 예측을 해보도록 하겠습니다. (1, 4, 5, 6, 7번 Feature)  
@@ -168,8 +159,7 @@ pyplot.show()
 ```
 
 
-![png](output_9_0.png)
-
+![output_9_0](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_9_0.png)
 
 ### Logistic regression Model
 
@@ -216,10 +206,8 @@ pyplot.show()
     Feature: 7, Score: 0.03772
     Feature: 8, Score: -0.51785
     Feature: 9, Score: 0.26540
-    
 
-
-![png](output_11_1.png)
+![output_11_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_11_1.png)
 
 
 그렇다면, Logistic regression에서 중요한 feature들만 써서 예측을 해도 분류 성능이 유지될까요?   
@@ -248,11 +236,10 @@ print('five feature accuracy : %.3f %%' % acc2)
 
     All feature accuracy : 80.600 % 
     five feature accuracy : 80.500 %
-    
+
 
 간단한 Logistic regression 모델에서는 거의 차의가 없는 것을 알 수 있습니다.  
 성능 차이가 거의 없는데, feature 개수는 절반으로 줄었으니 굉장히 효율적이겠죠?
-
 
 ## Decision Tree Feature Importance
 
@@ -310,11 +297,10 @@ pyplot.show()
     Feature: 7, Score: 0.04073
     Feature: 8, Score: 0.13772
     Feature: 9, Score: 0.02171
-    
 
 
-![png](output_15_1.png)
 
+![output_15_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_15_1.png)
 
 ### Random Forest Classification Feature Importance
 
@@ -359,11 +345,10 @@ pyplot.show()
     Feature: 7, Score: 0.04685
     Feature: 8, Score: 0.08381
     Feature: 9, Score: 0.04296
-    
 
 
-![png](output_17_1.png)
 
+![output_17_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_17_1.png)
 
 ### XGBoost Classification Feature Importance
 
@@ -404,7 +389,7 @@ pyplot.bar([x for x in range(len(importance))], importance)
 pyplot.show()
 ```
 
-    
+
     Feature: 0, Score: 0.03723
     Feature: 1, Score: 0.07725
     Feature: 2, Score: 0.12537
@@ -415,11 +400,8 @@ pyplot.show()
     Feature: 7, Score: 0.03537
     Feature: 8, Score: 0.11694
     Feature: 9, Score: 0.02285
-    
 
-
-![png](output_19_1.png)
-
+![output_19_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_19_1.png)
 
 ## Permutaion Feature Importance
 
@@ -470,208 +452,8 @@ perm = PermutationImportance(model, random_state=1).fit(X,y)
 eli5.show_weights(perm)
 ```
 
-   
-    
 
-
-
-
-
-    <style>
-    table.eli5-weights tr:hover {
-        filter: brightness(85%);
-    }
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <table class="eli5-weights eli5-feature-importances" style="border-collapse: collapse; border: none; margin-top: 0em; table-layout: auto;">
-    <thead>
-    <tr style="border: none;">
-        <th style="padding: 0 1em 0 0.5em; text-align: right; border: none;">Weight</th>
-        <th style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">Feature</th>
-    </tr>
-    </thead>
-    <tbody>
-
-        <tr style="background-color: hsl(120, 100.00%, 80.00%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.2394
-
-                    &plusmn; 0.0080
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x3
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 87.03%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.1290
-
-                    &plusmn; 0.0183
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x2
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 87.32%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.1248
-
-                    &plusmn; 0.0129
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x8
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 90.44%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0834
-
-                    &plusmn; 0.0123
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x6
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 95.33%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0300
-
-                    &plusmn; 0.0042
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x1
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 97.80%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0102
-
-                    &plusmn; 0.0039
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x5
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 98.67%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0050
-
-                    &plusmn; 0.0013
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x7
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 98.82%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0042
-
-                    &plusmn; 0.0023
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x4
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 98.86%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0040
-
-                    &plusmn; 0.0018
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x0
-            </td>
-        </tr>
-
-        <tr style="background-color: hsl(120, 100.00%, 99.57%); border: none;">
-            <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
-                0.0010
-
-                    &plusmn; 0.0000
-
-            </td>
-            <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
-                x9
-            </td>
-        </tr>
-
-
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![perm](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\perm.PNG)
 
 
 
