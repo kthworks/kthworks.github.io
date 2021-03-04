@@ -92,7 +92,7 @@ pyplot.show()
 
     (1000, 10) (1000,)
 
-![output_5_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_5_1.png)
+![output_5_1](https://user-images.githubusercontent.com/79889996/109930365-ecbebc00-7d0a-11eb-9082-9635bea76e71.png)
 
 다음으로, model에 내장되어 있는 `model.coef_` 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
 여기서 회귀 계수란, Linear Model  $Y = b_{0} + b_{1}X_{1} + b_{2}X_{2} \cdots$ 에서 $b_{1}, b_{2}, \cdots$ 에 해당하는 parameter를 말합니다.  
