@@ -1,7 +1,11 @@
 
 ---
 layout : single
-title: "Feature Importance의 개념 및 간단한 Python 예제 실습"
+title: "Feature Importance"
+excerpt: "Feature Importance의 개념 및 간단한 Python 예제 실습"
+
+toc: true
+toc_sticky: true
 ---
 
 
