@@ -1,6 +1,6 @@
 ---
 layout: single
-tltle: "Feature Importance의 개념 및 간단한 Python 예제 실습"  
+tltle: "Feature Importance의 개념 및 간단한 Python 실습 예제"  
 ---
 
 # Feature importance의 개념 및 간단한 Python 실습 예제
