@@ -1,8 +1,7 @@
 
 
 ---
-title: "Feature Importance"    
-excerpt: "Feature importance의 개념 및 간단한 Python 실습 예제"     
+title: "Feature Importance"        
 layout: single   
  
 
