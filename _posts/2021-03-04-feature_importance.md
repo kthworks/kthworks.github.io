@@ -1,5 +1,5 @@
-
 ---
+<<<<<<< HEAD
 layout : post
 title: "Feature Importance"
 excerpt: "Feature Importance의 개념 및 간단한 Python 예제 실습"
@@ -8,6 +8,12 @@ toc: true
 toc_sticky: true
 ---
 
+=======
+layout: post
+tltle: "Feature Importance의 개념 및 간단한 Python 실습 예제"  
+---
+
+>>>>>>> 75585bdc923123028435b218f7a4f0b72fd5efd3
 # Feature importance의 개념 및 간단한 Python 실습 예제
 
 안녕하세요, 태햄입니다.   
