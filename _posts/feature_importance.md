@@ -101,7 +101,7 @@ pyplot.show()
     
 
 
-![png](output_5_1.png)
+![output_5_1](https://user-images.githubusercontent.com/79889996/109920429-a020b400-7cfd-11eb-970a-0a0cfe9693bd.png)
 
 
 다음으로, model에 내장되어 있는 `model.coef_` 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
@@ -145,7 +145,8 @@ pyplot.show()
     
 
 
-![png](output_7_1.png)
+![output_7_1](https://user-images.githubusercontent.com/79889996/109920433-a151e100-7cfd-11eb-8772-c5c395060148.png)
+
 
 
 이 중에 중요한 5개의 Feature만 뽑아서 예측을 해보도록 하겠습니다. (1, 4, 5, 6, 7번 Feature)  
@@ -169,7 +170,7 @@ pyplot.show()
 ```
 
 
-![png](output_9_0.png)
+![output_9_0](https://user-images.githubusercontent.com/79889996/109920434-a151e100-7cfd-11eb-876c-7b9fff593c37.png)
 
 
 ### Logistic regression Model
@@ -220,7 +221,8 @@ pyplot.show()
     
 
 
-![png](output_11_1.png)
+![output_11_1](https://user-images.githubusercontent.com/79889996/109920436-a1ea7780-7cfd-11eb-963a-3ce498207cdc.png)
+
 
 
 그렇다면, Logistic regression에서 중요한 feature들만 써서 예측을 해도 분류 성능이 유지될까요?   
@@ -314,7 +316,8 @@ pyplot.show()
     
 
 
-![png](output_15_1.png)
+![output_15_1](https://user-images.githubusercontent.com/79889996/109920439-a1ea7780-7cfd-11eb-8eab-93a2f143f9c2.png)
+
 
 
 ### Random Forest Classification Feature Importance
@@ -363,7 +366,8 @@ pyplot.show()
     
 
 
-![png](output_17_1.png)
+![output_17_1](https://user-images.githubusercontent.com/79889996/109920441-a2830e00-7cfd-11eb-928d-9d86cc350189.png)
+
 
 
 ### XGBoost Classification Feature Importance
@@ -419,7 +423,8 @@ pyplot.show()
     
 
 
-![png](output_19_1.png)
+![output_19_1](https://user-images.githubusercontent.com/79889996/109920443-a2830e00-7cfd-11eb-8546-4ba197eeb73c.png)
+
 
 
 ## Permutaion Feature Importance
