@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 tltle: "Feature Importance의 개념 및 간단한 Python 실습 예제"  
 ---
 
