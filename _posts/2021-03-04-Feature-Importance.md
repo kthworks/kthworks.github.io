@@ -14,7 +14,7 @@ typora-root-url: ../
 
 전반적인 내용은 [이 곳](https://machinelearningmastery.com/calculate-feature-importance-with-python/) 을 참고했습니다. 
 
-### Feature importance란?  
+### Feature importance란? 
 
 이 곳을 찾아오신 분이라면 한번 쯤 Data로부터 Feature를 뽑고 Machine learning (ML) 혹은 Deep Learning (DL)을 이용하여 모델을 구축하여 학습시킨 경험이 있으실텐데요, 이 과정에서 들었던 의문이 있으셨을 겁니다.  
 
@@ -93,10 +93,10 @@ pyplot.show()
 
     (1000, 10) (1000,)
 
-![output_5_1](.\images\feature_importance\output_5_1.png)
+![target data](/images/feature_importance/output_5_1.png)
 
 다음으로, model에 내장되어 있는 **`model.coef_`** 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
-여기서 회귀 계수란,  
+여기서 회귀 계수란,   
 $$
 Y = b_{0} + b_{1}X_{1}+b_{2}X_{2}+ \cdots
 $$
@@ -138,7 +138,7 @@ pyplot.show()
     Feature: 8, Score: 0.00000
     Feature: 9, Score: -0.00000
 
-![output_7_1](.\images\feature_importance\output_7_1.png)
+![Feature Importance (coefficient)](/images/feature_importance/output_7_1.png)
 
 이 중에 중요한 5개의 Feature만 뽑아서 예측을 해보도록 하겠습니다. (1, 4, 5, 6, 7번 Feature)  
 아래와 같이 중요한 Feature만 뽑아서 써도 거의 정확하게 예측해내는 것을 볼 수 있습니다.
@@ -160,7 +160,7 @@ pyplot.show()
 
 ```
 
-![output_9_0](.\images\feature_importance\output_9_0.png)
+![Prediction result](/images/feature_importance/output_9_0.png)
 
 ### Logistic regression Model
 
@@ -208,7 +208,7 @@ pyplot.show()
     Feature: 8, Score: -0.51785
     Feature: 9, Score: 0.26540
 
-![output_11_1](.\images\feature_importance\output_11_1.png)
+![Feature Importance (Logistic regression)](/images/feature_importance/output_11_1.png)
 
 그렇다면, Logistic regression에서 중요한 feature들만 써서 예측을 해도 분류 성능이 유지될까요?   
 모든 feature들을 사용한 예측 결과와 feature importance가 높은 1, 2, 3, 6, 8 다섯개의 feature만 사용한 예측 결과를 비교해 보겠습니다.  
@@ -298,7 +298,7 @@ pyplot.show()
     Feature: 8, Score: 0.13772
     Feature: 9, Score: 0.02171
 
-![output_15_1](.\images\feature_importance\output_15_1.png)
+![Feature Importance (CART)](/images/feature_importance/output_15_1.png)
 
 ### Random Forest Classification Feature Importance
 
@@ -344,7 +344,7 @@ pyplot.show()
     Feature: 8, Score: 0.08381
     Feature: 9, Score: 0.04296
 
-![output_17_1](.\images\feature_importance\output_17_1.png)
+![Feature Importance (Random forest)](/images/feature_importance/output_17_1.png)
 
 ### XGBoost Classification Feature Importance
 
@@ -397,7 +397,7 @@ pyplot.show()
     Feature: 8, Score: 0.11694
     Feature: 9, Score: 0.02285
 
-![output_19_1](.\images\feature_importance\output_19_1.png)
+![Feature Importance (XGBoost)](/images/feature_importance/output_19_1.png)
 
 ## Permutaion Feature Importance
 
@@ -448,7 +448,7 @@ perm = PermutationImportance(model, random_state=1).fit(X,y)
 eli5.show_weights(perm)
 ```
 
-![perm](.\images\feature_importance\perm.PNG)
+![Permutation Feature Importance (XGBoost)](/images/feature_importance/perm.PNG)
 
 Permutaion Feature Importance를 이용했더니, 위에서 봤던 XGBoost의 Feature Importance 그래프와 동일한 내용이 표로 깔끔하게 정리된 것을 확인할 수 있습니다.   
 
