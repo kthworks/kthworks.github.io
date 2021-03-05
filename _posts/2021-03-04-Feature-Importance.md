@@ -8,7 +8,7 @@ toc_sticky: true
 ## Feature importance의 개념 및 간단한 Python 실습 예제
 
 안녕하세요, 태햄입니다.   
-첫 포스팅 주제는 __`Feature importance`__ 입니다.   
+첫 포스팅 주제는 __Feature importance__ 입니다.   
 먼저 __Feature importance__ 에 대한 개념을 이해하고 간단한 Python 실습을 통해 몸으로 익혀보도록 합시다 !  
 
 전반적인 내용은 [이 곳](https://machinelearningmastery.com/calculate-feature-importance-with-python/) 을 참고했습니다. 
@@ -70,7 +70,7 @@ pip install --upgrade sklearn
 
 ### Linear regression Model
 
-먼저, `__make_regression()__` 함수를 이용해서 심플한 linear regression 모델에 쓰일 데이터를 생성해줍니다.  
+먼저, **`make_regression()`** 함수를 이용해서 심플한 linear regression 모델에 쓰일 데이터를 생성해줍니다.  
 총 1000개의 샘플을 만들고, Feature 개수는 중요한 feature와 중요하지 않은 feature를 각각 5개씩 무작위로 생성해줍니다.  
 target data인 y를 그려보면 아래와 같이 생겼네요.
 
@@ -92,10 +92,18 @@ pyplot.show()
 
     (1000, 10) (1000,)
 
-![output_5_1](https://user-images.githubusercontent.com/79889996/109930365-ecbebc00-7d0a-11eb-9082-9635bea76e71.png)
+![output_5_1](..\assets\images\feature_importance\output_5_1.png)
 
-다음으로, model에 내장되어 있는 `model.coef_` 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
-여기서 회귀 계수란, Linear Model  $Y = b_{0} + b_{1}X_{1} + b_{2}X_{2} \cdots$ 에서 $b_{1}, b_{2}, \cdots$ 에 해당하는 parameter를 말합니다.  
+다음으로, model에 내장되어 있는 **`model.coef_`** 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
+여기서 회귀 계수란,  
+$$
+Y = b_{0} + b_{1}X_{1}+b_{2}X_{2}+ \cdots
+$$
+위의 Linear Model에서
+$$
+b_{0}, b_{1}, \cdots
+$$
+에 해당하는 parameter를 말합니다.  
 이 회귀계수가 0과 가까울수록 모델에 대한 설명력이 없고, 0과 멀수록 모델에 대한 설명력이 강합니다.
 
 아래 결과를 보면 총 10개의 Feature중 의미있는 5개의 Feature의 coefficient가 높게 나온 것을 확인할 수 있고, 이를 Importance로 사용한다면 중요한 Feature들 사이에서도 크기에 따라 importance의 순위를 매길 수도 있습니다.
@@ -135,7 +143,7 @@ pyplot.show()
 
 
 
-![output_7_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_7_1.png)
+![output_7_1](..\assets\images\feature_importance\output_7_1.png)
 
 
 이 중에 중요한 5개의 Feature만 뽑아서 예측을 해보도록 하겠습니다. (1, 4, 5, 6, 7번 Feature)  
@@ -159,12 +167,12 @@ pyplot.show()
 ```
 
 
-![output_9_0](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_9_0.png)
+![output_9_0](..\assets\images\feature_importance\output_9_0.png)
 
 ### Logistic regression Model
 
 Logistic regression은 Binary Classification에 적용할 수 있는데요,  
-`__make_classification()__` 함수를 이용해서 logistic regression 모델에 쓰일 데이터를 생성해줍니다.  
+**`make_classification()`** 함수를 이용해서 logistic regression 모델에 쓰일 데이터를 생성해줍니다.  
 총 1000개의 샘플을 만들고, Feature 개수는 중요한 feature와 중요하지 않은 feature를 각각 5개씩 무작위로 생성해줍니다.   
 여기서도 역시 각 Feature들의 importance를 뽑고 비교해볼 수 있습니다.
 
@@ -207,8 +215,7 @@ pyplot.show()
     Feature: 8, Score: -0.51785
     Feature: 9, Score: 0.26540
 
-![output_11_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_11_1.png)
-
+![output_11_1](..\assets\images\feature_importance\output_11_1.png)
 
 그렇다면, Logistic regression에서 중요한 feature들만 써서 예측을 해도 분류 성능이 유지될까요?   
 모든 feature들을 사용한 예측 결과와 feature importance가 높은 1, 2, 3, 6, 8 다섯개의 feature만 사용한 예측 결과를 비교해 보겠습니다.  
@@ -300,7 +307,7 @@ pyplot.show()
 
 
 
-![output_15_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_15_1.png)
+![output_15_1](..\assets\images\feature_importance\output_15_1.png)
 
 ### Random Forest Classification Feature Importance
 
@@ -348,7 +355,7 @@ pyplot.show()
 
 
 
-![output_17_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_17_1.png)
+![output_17_1](..\assets\images\feature_importance\output_17_1.png)
 
 ### XGBoost Classification Feature Importance
 
@@ -401,7 +408,7 @@ pyplot.show()
     Feature: 8, Score: 0.11694
     Feature: 9, Score: 0.02285
 
-![output_19_1](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\output_19_1.png)
+![output_19_1](..\assets\images\feature_importance\output_19_1.png)
 
 ## Permutaion Feature Importance
 
@@ -453,7 +460,7 @@ eli5.show_weights(perm)
 ```
 
 
-![perm](C:\Users\ImedisynRnD2\Documents\GitHub\kthworks.github.io\assets\images\feature_importance\perm.PNG)
+![perm](..\assets\images\feature_importance\perm.PNG)
 
 
 
