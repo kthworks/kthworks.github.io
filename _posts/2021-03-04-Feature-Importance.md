@@ -97,11 +97,7 @@ pyplot.show()
 ![target data](/images/feature_importance/output_5_1.png)
 
 다음으로, model에 내장되어 있는 **`model.coef_`** 함수를 통해 각 feature에 대한 회귀 계수 (regression coefficient)를 얻을 수 있습니다.  
-여기서 회귀 계수란,   
-$$
-Y = b_{0} + b_{1}X_{1}+b_{2}X_{2}+ \cdots
-$$
-위의 Linear Model에서 b~1~ b~2~ $\cdots$ 에 해당하는 parameter를 말합니다.  
+여기서 회귀 계수란, Linear Model  $Y = b_{0} + b_{1}X_{1}+b_{2}X_{2}+ \cdots$  에서 $b_{1}, b_{2} \cdots$ 에 해당하는 parameter를 말합니다.  
 이 회귀계수가 0과 가까울수록 모델에 대한 설명력이 없고, 0과 멀수록 모델에 대한 설명력이 강합니다.
 
 아래 결과를 보면 총 10개의 Feature중 의미있는 5개의 Feature의 coefficient가 높게 나온 것을 확인할 수 있고, 이를 Importance로 사용한다면 중요한 Feature들 사이에서도 크기에 따라 importance의 순위를 매길 수도 있습니다.
