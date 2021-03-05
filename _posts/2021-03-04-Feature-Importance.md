@@ -4,6 +4,7 @@ layout: single
 toc: true
 toc_sticky: true
 typora-root-url: ../
+use_math: true
 ---
 
 ## Feature importance의 개념 및 간단한 Python 실습 예제
