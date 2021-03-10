@@ -6,10 +6,10 @@ toc_sticky: true
 typora-root-url: ../
 use_math: true
 categories:
-  -Data science  
+  -Data&nbsp;science  
 tags:
-  -Data science
-  -Feature importance
+  -Data&nbsp;science
+  -Feature&nbsp;importance
   -Python
 ---
 
