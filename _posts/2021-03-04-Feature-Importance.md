@@ -6,11 +6,11 @@ toc_sticky: true
 typora-root-url: ../
 use_math: true
 categories:  
--"Data Science"  
+-Data_science  
 tags:  
--"Data Science"  
--"Feature Importance"  
--"Python"  
+-Data_science  
+-Feature_importance  
+-Python  
 ---
 
 ## Feature importance의 개념 및 간단한 Python 실습 예제
