@@ -1,9 +1,9 @@
 ---
-
 title: "Feature Importance"
 
 categories:
-  - Data science  
+  - Data science
+
 tags:
   - Data science
   - Feature importance
@@ -15,8 +15,6 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
-
-
 ---
 
 ## Feature importance의 개념 및 간단한 Python 실습 예제
