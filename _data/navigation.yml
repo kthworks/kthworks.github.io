@@ -9,9 +9,6 @@ main:
   - title: "Tags"
     url: /tags/
 
-  - title: "All posts"
-    url: /all_posts/
-
   - title: "About"
     url: /about/
 
