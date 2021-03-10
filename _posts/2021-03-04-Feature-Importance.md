@@ -1,7 +1,7 @@
 ---
 
 title: "Feature Importance"
-layout: single
+#layout: single
 toc: true
 toc_sticky: true
 use_math: true
