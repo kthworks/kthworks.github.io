@@ -102,7 +102,7 @@ author:
   links:
     - label: "kthwork9934@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
-      url: kthwork9934@gmail.com
+      url: "mailto:kthwork9934@gmail.com"
     - label: "Curriculum Vitae"
       icon: "fas fa-fw fa-file"
       url: "/assets/cv_blog.pdf"
