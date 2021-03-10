@@ -5,12 +5,12 @@ toc: true
 toc_sticky: true
 typora-root-url: ../
 use_math: true
-categories:  
--Data_science  
-tags:  
--Data_science  
--Feature_importance  
--Python  
+categories:
+  -Data_science  
+tags:
+  -Data_science
+  -Feature_importance
+  -Python
 ---
 
 ## Feature importance의 개념 및 간단한 Python 실습 예제
