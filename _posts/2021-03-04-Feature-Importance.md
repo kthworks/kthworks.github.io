@@ -1,17 +1,21 @@
 ---
 
 title: "Feature Importance"
-#layout: single
-toc: true
-toc_sticky: true
-use_math: true
-typora-root-url: ../
+
 categories:
   -Data&nbsp;science  
 tags:
   -Data&nbsp;science
   -Feature&nbsp;importance
   -Python
+
+layout: single
+
+toc: true
+toc_sticky: true
+use_math: true
+typora-root-url: ../
+
 
 ---
 
