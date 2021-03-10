@@ -1,6 +1,6 @@
 ---
 title: "Feature Importance"
-layout: single
+layout: posts
 toc: true
 toc_sticky: true
 typora-root-url: ../
