@@ -3,11 +3,11 @@
 title: "Feature Importance"
 
 categories:
-  -Data&nbsp;science  
+  - Data science  
 tags:
-  -Data&nbsp;science
-  -Feature&nbsp;importance
-  -Python
+  - Data science
+  - Feature importance
+  - Python
 
 layout: single
 
