@@ -1,16 +1,18 @@
 ---
+
 title: "Feature Importance"
-layout: posts
+layout: single
 toc: true
 toc_sticky: true
-typora-root-url: ../
 use_math: true
+typora-root-url: ../
 categories:
   -Data&nbsp;science  
 tags:
   -Data&nbsp;science
   -Feature&nbsp;importance
   -Python
+
 ---
 
 ## Feature importance의 개념 및 간단한 Python 실습 예제
