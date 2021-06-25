@@ -1,5 +1,5 @@
 ---
-title: "[Programmers 스킬체크] - Level1"
+title: "[Programmers 스킬체크] - Level 1"
 
 categories:
   - Coding test
