@@ -17,7 +17,7 @@ use_math: true
 typora-root-url: ../
 ---
 
-##Programmers 스킬체크 Level 1 합격후기
+## Programmers 스킬체크 Level 1 합격후기
 
 안녕하세요, 오늘은 Programmers의 실력체크 Level1에 도전해 보았습니다!
 스킬 체크는 원하는 언어를 선택해서 제한시간 동안 2문제를 풀어야하는데요.
