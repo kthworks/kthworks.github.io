@@ -1,5 +1,5 @@
 ---
-title: "[Programmers] - 신규 아이디 추천 (2021 카카오 블라인드 채용) Level1"
+title: "[Programmers] - 신규 아이디 추천 (2021 카카오 블라인드 채용)"
 
 categories:
   - Coding test
