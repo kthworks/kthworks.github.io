@@ -17,7 +17,7 @@ toc_sticky: true
 use_math: true
 typora-root-url: ../
 ---
-## Programmers Coding Test : 2018 KAKAO BLIND RECRUITMENT
+## Programmers Coding Test : 2018 KAKAO BLIND RECRUITMENT 1차
 
 안녕하세요 !  
 이번 포스팅도 **2018 카카오 블라인드 채용 1차 기출**입니다!  
