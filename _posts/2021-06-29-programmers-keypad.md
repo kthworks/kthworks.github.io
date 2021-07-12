@@ -1,5 +1,5 @@
 ---
-title: "[Programmers] - 키패드 누르기 (2020 카카오 인턴)"
+title: "[Programmers] - 키패드 누르기 (Level 1)"
 
 categories:
   - Coding test

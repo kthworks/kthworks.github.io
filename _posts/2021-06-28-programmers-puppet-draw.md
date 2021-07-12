@@ -1,5 +1,5 @@
 ---
-title: "[Programmers] - 크레인 인형뽑기 (2019 카카오 개발자 겨울 인턴십)"
+title: "[Programmers] - 크레인 인형뽑기 (Level 1)"
 
 categories:
   - Coding test

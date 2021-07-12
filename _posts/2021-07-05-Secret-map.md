@@ -1,5 +1,5 @@
 ---
-title: "[Programmers] - 비밀 지도 (2018 카카오 블라인드 채용)"
+title: "[Programmers] - 비밀 지도 (Level 1)"
 
 categories:
   - Coding test
