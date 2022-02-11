@@ -19,14 +19,14 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "Study" %}
-                        <li><a href="/categories/cpp" class="">STUDY ({{category[1].size}})</a></li>
+                        <li><a href="/categories/study" class="">STUDY ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "ML" %}
-                        <li><a href="/categories/stl" class="">ML ({{category[1].size}})</a></li>
+                        <li><a href="/categories/ml" class="">ML ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -34,14 +34,14 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "DL" %}
-                        <li><a href="/categories/algorithm" class="">DL ({{category[1].size}})</a></li>
+                        <li><a href="/categories/dl" class="">DL ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Math" %}
-                        <li><a href="/categories/programmers" class="">Math ({{category[1].size}})</a></li>
+                    {% if category[0] == "math" %}
+                        <li><a href="/categories/math" class="">MATH ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
