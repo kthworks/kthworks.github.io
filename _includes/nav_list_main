@@ -1,3 +1,5 @@
+<!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
 {% assign sum = site.posts | size %}
 
 <nav class="nav__list">
@@ -9,7 +11,7 @@
             📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
-        <!--span 태그로 카테고리들을 크게 분류 ex) STUDY-->
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
         <span class="nav__sub-title">STUDY</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
@@ -23,7 +25,7 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "STL" %}
+                    {% if category[0] == "ML" %}
                         <li><a href="/categories/stl" class="">ML ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -31,15 +33,15 @@
         <span class="nav__sub-title">Coding Test</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Algorithm" %}
+                    {% if category[0] == "DL" %}
                         <li><a href="/categories/algorithm" class="">DL ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Programmers" %}
-                        <li><a href="/categories/programmers" class="">Math & Statistical({{category[1].size}})</a></li>
+                    {% if category[0] == "Math" %}
+                        <li><a href="/categories/programmers" class="">Math ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
