@@ -5,11 +5,9 @@ categories:
   - kakao
 
 tags:
-  - Coding test
+
   - Algorithm
-  - Python
-  - Kakao
-  - 문자열처리
+  - 문자열
   - 정규표현식
 
 layout: single

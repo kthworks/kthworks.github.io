@@ -22,7 +22,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
 
                 {% for category in site.categories %}
-                    {% if category[0] == "study" %}
+                    {% if category[0] == "Study" %}
                         <li><a href="/categories/study" class="">STUDY ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -59,14 +59,6 @@
                 {% for category in site.categories %}
                     {% if category[0] == "kakao" %}
                         <li><a href="/categories/math" class="">KAKAO ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "basic" %}
-                        <li><a href="/categories/basic" class="">BASIC ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

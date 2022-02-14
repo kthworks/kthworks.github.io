@@ -5,11 +5,6 @@ categories:
   - math
   - ML
 
-tags:
-  - Data science
-  - Feature importance
-  - Python
-  - Study
 
 layout: single
 

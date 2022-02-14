@@ -5,9 +5,8 @@ categories:
   - basic
 
 tags:
-  - Coding test
+ 
   - Algorithm
-  - Python
   - Hash
 
 layout: single

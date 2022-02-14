@@ -5,10 +5,9 @@ categories:
   - kakao
 
 tags:
-  - Coding test
+  
   - Algorithm
-  - Python
-  - Kakao
+ 
 
 layout: single
 

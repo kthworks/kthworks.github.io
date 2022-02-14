@@ -5,9 +5,8 @@ categories:
   - kakao
 
 tags:
-  - Coding test
+
   - Algorithm
-  - Python
   - DFS(깊이우선탐색)
   - BFS(너비우선탐색)
 
