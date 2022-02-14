@@ -1,5 +1,5 @@
 ---
-title: "NLP"
+title: "BASIC"
 layout: archive
 permalink: categories/basic
 author_profile: true
