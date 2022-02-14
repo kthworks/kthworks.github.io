@@ -2,7 +2,7 @@
 title: "[Programmers] - DFS/BFS : 타겟넘버 (Level 2)"
 
 categories:
-  - Coding test
+  - kakao
 
 tags:
   - Coding test

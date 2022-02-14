@@ -2,7 +2,7 @@
 title: "[Programmers] - 키패드 누르기 (Level 1)"
 
 categories:
-  - Coding test
+  - kakao
 
 tags:
   - Coding test

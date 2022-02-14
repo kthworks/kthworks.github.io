@@ -2,8 +2,8 @@
 title: "Feature Importance"
 
 categories:
-  - Data science
-  - Study
+  - math
+  - ML
 
 tags:
   - Data science

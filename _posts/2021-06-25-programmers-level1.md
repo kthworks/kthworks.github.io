@@ -2,7 +2,7 @@
 title: "[Programmers 스킬체크] - Level 1"
 
 categories:
-  - Coding test
+  - basic
 
 tags:
   - Coding test

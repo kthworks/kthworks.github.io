@@ -2,7 +2,7 @@
 title: "[Programmers] - 신규 아이디 추천 (Level 1)"
 
 categories:
-  - Coding test
+  - kakao
 
 tags:
   - Coding test

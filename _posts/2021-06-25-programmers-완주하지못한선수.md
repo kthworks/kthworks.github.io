@@ -2,7 +2,7 @@
 title: "[Programmers] - Hash : 완주하지 못한 선수 (Level 1)"
 
 categories:
-  - Coding test
+  - basic
 
 tags:
   - Coding test

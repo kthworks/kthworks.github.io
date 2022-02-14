@@ -2,7 +2,7 @@
 title: "[Programmers] - 크레인 인형뽑기 (Level 1)"
 
 categories:
-  - Coding test
+  - kakao
 
 tags:
   - Coding test

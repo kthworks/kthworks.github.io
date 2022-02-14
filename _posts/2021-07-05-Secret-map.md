@@ -2,7 +2,7 @@
 title: "[Programmers] - 비밀 지도 (Level 1)"
 
 categories:
-  - Coding test
+  - kakao
 
 tags:
   - Coding test
