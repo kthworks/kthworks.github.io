@@ -19,7 +19,7 @@
 
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "ML" %}
+                    {% if category[0] == "ml" %}
                         <li><a href="/categories/ml" class="">ML ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -27,7 +27,7 @@
 
 	<ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "DL" %}
+                    {% if category[0] == "dl" %}
                         <li><a href="/categories/dl" class="">DL ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -43,7 +43,7 @@
 
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "NLP" %}
+                    {% if category[0] == "nlp" %}
                         <li><a href="/categories/nlp" class="">NLP ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}

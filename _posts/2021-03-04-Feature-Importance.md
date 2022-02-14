@@ -3,7 +3,7 @@ title: "Feature Importance"
 
 categories:
   - math
-  - ML
+  - ml
 
 
 layout: single
