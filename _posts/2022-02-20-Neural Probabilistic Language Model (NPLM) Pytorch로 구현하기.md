@@ -159,7 +159,7 @@ print('Target : ', target_batch)
 
 임베딩 과정부터는 모델 안에서 다루어지는데요,
 먼저 모델에 사용되는 각 요소들에 대해서 한번 더 짚고 넘어가겠습니다.
-![](../images/NPLM/model.png)
+![](./../images/NPLM/model.png)
 
 target을 예측하기 위한 output 수식은 $Y_{w_{t}} = b + Wx + U( tanh(Hx_{t}+d) )$ 였습니다.      
 
