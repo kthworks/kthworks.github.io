@@ -10,6 +10,7 @@ layout: single
 toc: true
 toc_sticky: true
 use_math: true
+comments: true
 ---
 
 안녕하세요, 이번 포스팅에서는 [저번 시간](https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/)에 공부한 [NPLM](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf) 모델을 직접 구현해보도록 하겠습니다.

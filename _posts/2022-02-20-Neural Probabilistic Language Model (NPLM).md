@@ -10,6 +10,7 @@ layout: single
 toc: true
 toc_sticky: true
 use_math: true
+comments: true
 ---
 
 안녕하세요, 이번 포스팅에서는 [Neural Probabilistic Language Model(NPLM)](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)에 대해서 공부하고자 합니다.

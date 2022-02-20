@@ -5,9 +5,9 @@ categories:
   - kakao
 
 tags:
-  
+
   - Algorithm
- 
+
 
 layout: single
 
@@ -15,6 +15,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Programmers Coding Test 2019 카카오 개발자 겨울 인턴십
@@ -75,29 +76,29 @@ board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
 moves = [1,5,3,5,1,2,1,4]
 
 def solution(board, moves):
-    
+
     bag = []  
     count = 0
     tr_board = np.transpose(board)
-    
+
     for i in range(0,len(moves)):
         if (tr_board[moves[i]-1].sum() != 0):
             temp = tr_board[moves[i]-1]
             ind = np.nonzero(temp)
             bag.append(temp[ind[0][0]])
             tr_board[moves[i]-1][ind[0][0]] = 0
-            
+
             if len(bag)>1 and bag[-2]==bag[-1]:
-                count += 2 
+                count += 2
                 bag.pop()
                 bag.pop()
 
     return count
 
 solution(board, moves)
-            
-            
-    
+
+
+
 
 ```
 

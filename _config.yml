@@ -30,7 +30,7 @@ masthead_title           : # overrides the website title displayed in the masthe
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # "disqus"
+  provider               :  "disqus"
   disqus:
     shortname            : "taeham-github-io"
   discourse:
@@ -269,7 +269,6 @@ compress_html:
   ignore:
     envs: development
 
-
 # Defaults
 defaults:
   # _posts
@@ -280,7 +279,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: false
-      comments: # true
+      comments: true
       share: true
       related: true
       sidebar_main: true

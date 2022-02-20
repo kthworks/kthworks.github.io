@@ -12,6 +12,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Feature importance의 개념 및 간단한 Python 실습 예제
@@ -20,15 +21,15 @@ typora-root-url: ../
 첫 포스팅 주제는 __Feature importance__ 입니다.   
 먼저 __Feature importance__ 에 대한 개념을 이해하고 간단한 Python 실습을 통해 몸으로 익혀보도록 합시다 !  
 
-전반적인 내용은 [이 곳](https://machinelearningmastery.com/calculate-feature-importance-with-python/) 을 참고했습니다. 
+전반적인 내용은 [이 곳](https://machinelearningmastery.com/calculate-feature-importance-with-python/) 을 참고했습니다.
 
-### Feature importance란? 
+### Feature importance란?
 
 이 곳을 찾아오신 분이라면 한번 쯤 Data로부터 Feature를 뽑고 Machine learning (ML) 혹은 Deep Learning (DL)을 이용하여 모델을 구축하여 학습시킨 경험이 있으실텐데요, 이 과정에서 들었던 의문이 있으셨을 겁니다.  
 
 __*어떤 Feature가 이 모델에서 중요한 역할을 하는 Feature일까?*__
 
-우리가 Model을 학습 시킬 때, Model에게 도움을 많이 줄 수 있는 Feature들만 최대한 확보하고 불필요한 정보는 학습에 사용하지 않는 것이 가장 현명한 방법이 되겠죠? 
+우리가 Model을 학습 시킬 때, Model에게 도움을 많이 줄 수 있는 Feature들만 최대한 확보하고 불필요한 정보는 학습에 사용하지 않는 것이 가장 현명한 방법이 되겠죠?
 
 __Feature importance__ 는 __모델에 사용된 Feature들 중 모델의 학습에 기여한 정도에 따른 중요도__ 라고 할 수 있습니다.  
 특정 Feature가 모델의 정확도를 크게 높여준다면 이 Feature의 중요도 (importance) 또한 당연히 높겠죠?  
@@ -36,7 +37,7 @@ Feature importance를 계산하는 방법은 모델에 따라 다양하지만, �
 
 1. __Regression 에서 각 feature의 회귀 계수 (regression coefficient)를 이용한 방법__  
 2. __의사결정나무 (Decision Tree) 기반 분류 모델에서 불순도를 이용한 방법__
-3. __Permutation Feature importance__ 
+3. __Permutation Feature importance__
 
 Feature importance를 통해 모델에 적절한 Feature들을 찾아 낼 수 있다면, 아래와 같은 기대효과를 얻을 수 있습니다.
 
@@ -51,7 +52,7 @@ Scikit-Learn 라이브러리를 이용하여 예제들을 진행할텐데, 버�
 
 
 ```python
-# Scikit-Learn Version check 
+# Scikit-Learn Version check
 import sklearn
 print(sklearn.__version__)
 ```
@@ -124,7 +125,7 @@ importance = model.coef_
 for i,v in enumerate(importance):
     print('Feature: %0d, Score: %.5f' % (i,v))
 
-    
+
 from matplotlib import pyplot
 # Plot feature importance
 pyplot.bar([x for x in range(len(importance))], importance)
@@ -238,7 +239,7 @@ print('five feature accuracy : %.3f %%' % acc2)
 
 ```
 
-    All feature accuracy : 80.600 % 
+    All feature accuracy : 80.600 %
     five feature accuracy : 80.500 %
 
 
@@ -254,14 +255,14 @@ Decision Tree 기반 분류모델에서는 Feature Importance를 위해 __불순
 
 ### CART Classification Feature Importance
 
-먼저, Decision Tree 기반 모델에서 유명한 CART (Classfication and Regression Tree) 알고리즘의 Feature Importance를 뽑아 보겠습니다. 
+먼저, Decision Tree 기반 모델에서 유명한 CART (Classfication and Regression Tree) 알고리즘의 Feature Importance를 뽑아 보겠습니다.
 CART 알고리즘과 관련한 자세한 내용은 아래 링크들을 참고해 주세요 : )  
 - [Tyami 님의 블로그](https://tyami.github.io/machine%20learning/decision-tree-4-CART/)  
 - [이다경 님의 블로그](https://leedakyeong.tistory.com/)  
 
 Python은 대부분의 모델들을 이미 구축해서 라이브러리로 쉽게 이용할 수 있지만,   
 각 모델마다 조금씩 사용법이 다르니 검색해가시면서 사용하시면 됩니다 : )   
-CART를 위해 __`DecisionTreeClassifier`__ 를 이용했구요, importance는 __`.feature_importance_`__ 를 이용하시면 됩니다. 
+CART를 위해 __`DecisionTreeClassifier`__ 를 이용했구요, importance는 __`.feature_importance_`__ 를 이용하시면 됩니다.
 
 
 ```python
@@ -383,7 +384,7 @@ importance = model.feature_importances_
 # summarize feature importance
 for i,v in enumerate(importance):
     print('Feature: %0d, Score: %.5f' % (i,v))
-    
+
 # plot feature importance
 pyplot.bar([x for x in range(len(importance))], importance)
 pyplot.show()
@@ -418,7 +419,7 @@ Permutaion Feature importance는 어떤 모델이든 학습 시킨 후에, 특�
 - [HONG_YP 님의 블로그](https://hong-yp-ml-records.tistory.com/51)
 
 Python에서 제공하는 훌륭한 라이브러리인 eli5를 이용해서 Permutation Featire Importance를 뽑아 보려고 합니다.
-마지막에 사용했던 모델인 XGBoost를 이용해보도록 하겠습니다. 
+마지막에 사용했던 모델인 XGBoost를 이용해보도록 하겠습니다.
 
 
 ```python

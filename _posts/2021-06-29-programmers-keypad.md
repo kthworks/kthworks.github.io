@@ -14,6 +14,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Programmers Coding Test 2020 카카오 인턴
@@ -98,60 +99,60 @@ numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]
 hand = "right"
 
 def solution(numbers, hand):
-    
+
     #숫자를 좌표공간으로 변환
     convert = {
-        1:[1,1], 2:[1,2], 3:[1,3], 
-        4:[2,1], 5:[2,2], 6:[2,3], 
+        1:[1,1], 2:[1,2], 3:[1,3],
+        4:[2,1], 5:[2,2], 6:[2,3],
         7:[3,1], 8:[3,2], 9:[3,3], 0:[4,2]
             }
 
-    
+
     #양손 위치추적을 위한 초기값
     L_trace = [4,1] # initial *
     R_trace = [4,3] # initial #
-    
+
     loc = []
     answer = ''
     for i in range(0,len(numbers)):
         loc.append(convert[numbers[i]])
-        
+
         # 1,4,7 일 경우
         if loc[-1][1] == 1:
             answer += "L"
             L_trace = loc[-1]
-        
+
         # 3,6,9 일 경우
         elif loc[-1][1] == 3:
             answer+= "R"
             R_trace = loc[-1]
-        
+
         # 2, 5, 8, 0 일 경우
         else:
-            
+
             # 거리 계산
             d1 = abs(loc[-1][0]-L_trace[0]) + abs(loc[-1][1]-L_trace[1])
             d2 = abs(loc[-1][0]-R_trace[0]) + abs(loc[-1][1]-R_trace[1])
-            
-            
+
+
             if d1<d2:
                 answer+= "L"
                 L_trace = loc[-1]
-                
+
             elif d1>d2:
                 answer+= "R"
                 R_trace = loc[-1]
-            
+
             #양손 거리가 같을 경우 hand에 따라 누르기
             else:
                 if hand== "right":
-                    
+
                     answer+= "R"
                     R_trace = loc[-1]
                 else:
                     answer+= "L"
                     L_trace = loc[-1]
-        
+
     return answer
 
 solution(numbers,hand)

@@ -5,7 +5,7 @@ categories:
   - basic
 
 tags:
- 
+
   - Algorithm
   - Hash
 
@@ -15,6 +15,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Programmers Coding Test 연습시리즈
@@ -62,26 +63,26 @@ completion의 길이는 participant의 길이보다 1 작습니다.
 
 ```python
 participant = ["marina", "josipa", "nikola", "vinko", "filipa"]
-completion = ["josipa", "filipa", "marina", "nikola"]	
+completion = ["josipa", "filipa", "marina", "nikola"]
 
 def solution(participant, completion):
-    
+
     par = {}
     for i in range(0,len(participant)):
         try: par[participant[i]] +=1
         except: par[participant[i]] =1
-    
+
     for i in range(0,len(completion)):
         try: par[completion[i]] -=1
         except: par[compltion[i]] =0
-    
+
     key = list(par.keys())
     val = list(par.values())
-    
+
     return key[val.index(1)]
 
 solution(participant, completion)
-                  
+
 ```
 
 
@@ -104,7 +105,7 @@ dic = {}
 for part in participant:
     dic[hash(part)] = part
     temp += int(hash(part))
-    
+
 for com in completion:
     temp -= hash(com)
 answer = dic[temp]
@@ -114,7 +115,7 @@ print(answer)
 ```
 
     vinko
-    
+
 
 이렇게 문제를 하나하나 풀다 보면, 제 부족한점을 많이 채울 수 있는 것 같아 기분이 좋습니다.  
 다음에는 이번에 배운 해쉬를 적극적으로 활용하여 문제를 풀어보면 좋을 것 같네요.  

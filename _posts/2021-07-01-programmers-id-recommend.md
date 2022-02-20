@@ -16,6 +16,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Programmes Coding Test : 2021 KAKAO BLIND RECRUITMENT (Level 1)
@@ -131,11 +132,11 @@ no	new_id	result
 new_id = "...!@BaT#*..y.abcdefghijklm"
 
 def solution(new_id):
-    
+
     id = new_id
     # 1단계
     id = id.lower()
-    
+
     # 2단계
     id = list(id)
     temp = []
@@ -143,16 +144,16 @@ def solution(new_id):
         if i == '.' or i == '-' or i == '_' or i.isalnum():
             temp.append(i)
     id = temp
-    
+
     # 3단계
-    
+
     temp = []
     temp.append(id[0])
     for i in id[1:]:     
         if temp[-1] == '.' and i == '.':
             temp.pop()
         temp.append(i)
-    
+
     # 4단계
     while True:
         if temp[0] == '.':
@@ -162,29 +163,29 @@ def solution(new_id):
         else:
             break
         break
-        
+
     id = temp
-    
+
     # 5단계
     if not id:
         id.append('a')
-    
+
     # 6단계
     if len(id)>=16:
         id = id[:15]
-    
+
     if id[-1] == '.':
         id.pop()
-    
+
     # 7단계
     if len(id)<=2:
         while len(id)<3:
             id.append(id[-1])
-        
+
     temp = ''
     for i in id:
         temp = temp+i
-        
+
     return temp
 
 

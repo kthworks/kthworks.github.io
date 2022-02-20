@@ -14,6 +14,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 ## Programmers Coding Test : 2018 KAKAO BLIND RECRUITMENT 1차
 
@@ -26,7 +27,7 @@ typora-root-url: ../
 
 그럼 문제 설명 들어갑니다 ~  
 
-## 문제 설명 
+## 문제 설명
 
 네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다.
 
@@ -78,17 +79,17 @@ arr2 = 	[30, 1, 21, 17, 28]
 def solution(n,arr1,arr2):
     arr1bin = [format(x,'b') for x in arr1]
     arr2bin = [format(x,'b') for x in arr2]
-    
+
     arr1bin = list(arr1bin)
     arr2bin = list(arr2bin)
-    
+
     for i in range(0,n):
         while len(arr1bin[i])<n:
             arr1bin[i] = '0'+arr1bin[i]
-            
+
         while len(arr2bin[i])<n:
             arr2bin[i] = '0'+arr2bin[i]
-    
+
     answer = []
     for i in range(0,n):
         temp = ''
@@ -97,7 +98,7 @@ def solution(n,arr1,arr2):
                 temp += ' '
             else:
                 temp += '#'
-        
+
         answer.append(temp)
     return answer
 

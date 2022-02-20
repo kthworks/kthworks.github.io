@@ -16,6 +16,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Programmers Coding Test - 깊이/너비 우선 탐색(DFS/BFS) - Level 2
@@ -48,7 +49,7 @@ n개의 음이 아닌 정수가 있습니다. 이 수를 적절히 더하거나 
 
 ## 문제 풀이1
 
-이번 풀이에서 핵심이 되는 부분은 
+이번 풀이에서 핵심이 되는 부분은
 
 
 ```python
@@ -66,14 +67,14 @@ import numpy as np
 
 def solution(numbers, target):
     posneg_items = [(items, -items) for items in numbers]
-    
+
     result = [[]]
-    
+
     for items in posneg_items:
         result = [x+[y] for x in result for y in items]
-    
+
     result = [sum(items) for items in result]
-    
+
     return result.count(target)
 
 solution(numbers,target)
@@ -89,7 +90,7 @@ solution(numbers,target)
 ## 문제풀이2
 
 다른 사람의 풀이중 재귀함수를 이용해서 아주 아름답게 풀이한 것이 있어서 많은 공부가 되었습니다 :)
-앞에서부터 하나씩 줄어드는 number에서 가장 앞에 있는 요소를 각각 target에 더하고 빼면서, target이 0이 되는 부분을 카운팅하는 흐름인데요. 정말 재귀함수를 잘 사용했다는 생각이 들었습니다. 
+앞에서부터 하나씩 줄어드는 number에서 가장 앞에 있는 요소를 각각 target에 더하고 빼면서, target이 0이 되는 부분을 카운팅하는 흐름인데요. 정말 재귀함수를 잘 사용했다는 생각이 들었습니다.
 
 
 ```python
@@ -103,7 +104,7 @@ def solution(numbers, target):
         return 0
     else:
         return solution(numbers[1:], target-numbers[0]) + solution(numbers[1:], target+numbers[0])
-    
+
 solution(numbers, target)
 ```
 

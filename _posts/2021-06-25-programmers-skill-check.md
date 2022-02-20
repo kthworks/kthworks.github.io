@@ -13,6 +13,7 @@ toc: true
 toc_sticky: true
 use_math: true
 typora-root-url: ../
+comments: true
 ---
 
 ## Programmers 스킬체크 Level 1 합격후기
@@ -37,12 +38,12 @@ n과 m이 주어졌을 때, n,m의 최대 공약수와 최소 공배수를 출�
 def solution(n, m):
     a = [] #최대공약수
     b = [] #최소공배수
-    
+
     #최대공약수 구하기
     for i in range(1,n+1):
         if n%i ==0 and m%i==0:
             a=i
-    
+
     #최소공배수 구하기
     t=0
     while True:
@@ -51,7 +52,7 @@ def solution(n, m):
         if temp==0:
             b=n*t
             break
-            
+
     return a,b
 
 solution(n,m)
@@ -86,7 +87,7 @@ print(solution(5))
 
     Even
     Odd
-    
+
 
 이렇게 저는 스킬 체크 레벨1을 합격했습니다.  
 다음 레벨들도 쭉쭉 합격해나가도록 하겠습니다.
