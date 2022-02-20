@@ -123,4 +123,4 @@ C (Embedding matrix)를 거친 단어($w$)들은 $x$가 되고, 다음으로 $H$
 [ratsgo 님의 블로그](https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/29/NNLM/)   
 [graykode 님의 github](https://github.com/graykode/nlp-tutorial/blob/master/1-1.NNLM/NNLM.py)   
 
-[NPLM 논-------=-=](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+[NPLM 논문](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
