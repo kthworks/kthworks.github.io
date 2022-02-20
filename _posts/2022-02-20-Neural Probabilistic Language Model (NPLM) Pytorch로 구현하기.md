@@ -12,7 +12,7 @@ toc_sticky: true
 use_math: true
 ---
 
-이번 포스팅에서는 [저번 시간](https://kthworks.github.io/nlp/NPLM/)에 공부한 [NPLM](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf) 모델을 직접 구현해보도록 하겠습니다.
+이번 포스팅에서는 [저번 시간](https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/)에 공부한 [NPLM](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf) 모델을 직접 구현해보도록 하겠습니다.
 
 일반적으로 구현을 할 때는 전체적인 흐름을 미리 생각하고 구현을 하기 때문에 함수나 모델에 대한 정의를 미리 하는데, 저는 그렇게 했을 때 이해하기가 조금 더 어려움을 느꼈습니다.
 
