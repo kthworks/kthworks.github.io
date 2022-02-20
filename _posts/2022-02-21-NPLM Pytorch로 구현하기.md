@@ -1,6 +1,5 @@
 ---
 categories:
-  - NLP
   - nlp
 
 tags:
