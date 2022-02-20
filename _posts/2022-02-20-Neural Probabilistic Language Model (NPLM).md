@@ -14,7 +14,7 @@ use_math: true
 
 # Neural Probabilistic Language Model (NPLM)
 
-안녕하세요, 이번 포스팅에서는 [Neural Probabilistic Language Model(LPLM)](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)에 대해서 공부하고자 합니다.
+안녕하세요, 이번 포스팅에서는 [Neural Probabilistic Language Model(NPLM)](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)에 대해서 공부하고자 합니다.
 NPLM은 2003년에 AI 4대천왕 중 한분인 Yoshua Bengio 교수님께서 제안하셨고, 당시 많은 주목을 받았습니다.    
 
 ### 논문 발표 당시 (2003)의 최신 기법은..?
@@ -106,7 +106,8 @@ C (Embedding matrix)를 거친 단어($w$)들은 $x$가 되고, 다음으로 $H$
 
 그런데, 수식을 보면 $W$라는 term이 하나 더 있네요. 원문에서 W는 embedding layer에서 output layer까지 직접적인 연결 (direct connection)이라고 말합니다. 모델 그림에서는 초록색 점선에 해당합니다. 만약 embedding layer와 output layer의 직접적인 연결을 원한다면 $W$를 실수로 두고, 그렇지 않다면 $W$를 0으로 두면 되는 것이죠.  
 
-따라서 embedded vector인 $x_{t}$를 $W$ weight와 곱한 것까지 더해주면 최종 output에 대한 식이 완성됩니다 ( $b + Wx_{t} + U( tanh(Hx_{t} + d)$ ).
+따라서 embedded vector인 $x_{t}$를 $W$ weight와 곱한 것까지 더해주면 최종 output에 대한 식이 완성됩니다   
+( $b + Wx_{t} + U( tanh(Hx_{t} + d)$ ).
 
 이렇게 예측된 output값은 softmax를 거친 후에 확률로 변환이 되며, cross-entropy를 이용하여 cost를 계산할 수 있습니다.
 마지막으로 adam과 같은 optimizer를 이용하여 backpropagation과 weight를 업데이트 해주면 되겠네요.
