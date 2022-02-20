@@ -12,15 +12,14 @@ toc_sticky: true
 use_math: true
 ---
 
-
-## Neural Probabilistic Language Model (NPLM) 구현
-
 이번 포스팅에서는 [저번 시간](https://kthworks.github.io/nlp/NPLM/)에 공부한 [NPLM](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf) 모델을 직접 구현해보도록 하겠습니다.
 
 일반적으로 구현을 할 때는 전체적인 흐름을 미리 생각하고 구현을 하기 때문에 함수나 모델에 대한 정의를 미리 하는데, 저는 그렇게 했을 때 이해하기가 조금 더 어려움을 느꼈습니다.
 
 그래서, 여러분들이 글을 읽고 따라오시면서 최대한 쉬운 이해를 하실 수 있도록 의식의 흐름대로 구현을 한 후에, 마지막에 전체적으로 코드를 정리하도록 하겠습니다.
 
+
+#### Import Library
 먼저, 기본 라이브러리들을 import 하겠습니다.
 pytorch와 neural network, 그리고 학습하면서 weight update를 하기 위한 optimizer를 가져옵니다.
 
@@ -45,6 +44,7 @@ corpus = ['코딩은 시작이 반이다', '나는 오늘도 주짓수', '코딩
 
 위에서 준비한 이 문장들이 우리가 확보한 dataset, 즉 **corpus(말뭉치)**가 됩니다.
 
+#### Tokenization(토큰화)
 다음으로, 문장으로 구성된 데이터 셋을 단어 단위로 쪼개는 **Tokenization(토큰화)** 과정이 필요합니다.
 
 이번 포스팅에서 준비한 corpus는 띄어쓰기를 기준으로 아주 간단하게 Tokenization을 진행할 수 있지만, 사실 실제 대용량 데이터를 다룰 때에는 중복 단어, 특수 문자, 띄어쓰기, 불필요한 단어, 오타 등을 처리하기 위해 다양한 전처리 과정들을 반드시 진행해야 합니다.
@@ -116,6 +116,7 @@ index_dict
      13: '뭔데'}
 
 
+#### Input / Output 나누기
 
 다음으로, input과 target을 나눠주겠습니다. 우리의 목적은 단어 2개를 참고하여 그 다음에 올 단어를 예측하는 것입니다(tri-gram).
 각 단어들을 추출한 후에, 추후 Embedding을 진행하기 위해 미리 word_dict를 이용하여 인덱스로 변환해주도록 하겠습니다.
@@ -154,6 +155,7 @@ print('Target : ', target_batch)
             [ 6,  2]])
     Target :  tensor([ 8,  4,  1, 13, 10])
 
+#### Model
 
 임베딩 과정부터는 모델 안에서 다루어지는데요,
 먼저 모델에 사용되는 각 요소들에 대해서 한번 더 짚고 넘어가겠습니다.
@@ -198,7 +200,7 @@ class NPLM(nn.Module):
 자, 이렇게 모델도 구축을 완료했습니다!
 이제, 모든 요소들을 포함한 메인 루프를 완성해 봅시다 : )
 
-
+#### Main
 ```python
 if __name__ == '__main__': #코드를 직접 실행했을때만 작동하고, import 될때는 작동하지 않게 만들어줌
     n = 3
@@ -260,6 +262,7 @@ for i in corpus:
 
 앞의 두 단어를 이용해서 뒤의 단어를 잘 예측하는 것을 확인할 수 있습니다.
 
+#### Embedded word scatter plot
 또 하나, 재밌는 것을 확인해보고자 합니다.
 학습된 embedding vector들을 2차원 평면상에 뿌려보았을때, 서로 관련있는 단어들끼리 뭉쳐질까요?
 
@@ -285,8 +288,9 @@ for i, txt in enumerate(tokens):
 
 평면상에 표상은 되었다만 딱히 큰 연관성은 보이지 않는 것 같습니다. 풍부한 데이터를 이용하여 학습시킨다면 품사 간의 관계나 단어의 유의성 등을 훨씬 잘 표상하지 않을까 싶습니다.
 
-마지막으로, 전체 코드 정리본을 올리고 마무리하겠습니다.
 
+#### Whold code
+마지막으로, 전체 코드 정리본을 올리고 마무리하겠습니다.
 
 ```python
 import torch
