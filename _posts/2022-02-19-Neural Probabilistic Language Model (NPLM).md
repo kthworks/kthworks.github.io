@@ -55,7 +55,7 @@ n-gram모델은 당시 최신 기법이었지만 **몇 가지 단점**들이 있
 물론 NPLM 이전에도 n-gram의 단점들을 보완하기 위해서 back-off나 smoothing 같은 방법이 제안되기도 했었습니다만 (자세한 내용은 [수박바 님의 블로그](https://soobarkbar.tistory.com/8)를 참고해주세요),
 
 NPLM에서는 이러한 문제점들을 해결하기 위해 **분산 표현 (Distributed Representation)**이라는 개념을 제안합니다.  
-one-hot vector보다 훨씬 적은 m차원의 vector에 모든 요소가 실수로 채워진 형태인데요, 초기값은 랜덤한 실수로 구성되어 있지만 학습을 통해 각 벡터들은 점점 각 단어의 정보를 압축하는 벡터가 됩니다. ![](/images/NPLM/embedding.png) <center> 그림 출처 : Jiho님의 [Weekly NLP](https://jiho-ml.com/weekly-nlp-4/) </center>
+one-hot vector보다 훨씬 적은 m차원의 vector에 모든 요소가 실수로 채워진 형태인데요, 초기값은 랜덤한 실수로 구성되어 있지만 학습을 통해 각 벡터들은 점점 각 단어의 정보를 압축하는 벡터가 됩니다. ![](/images/NPLM/embedding.png) <center>그림 출처 : Jiho님의 [Weekly NLP](https://jiho-ml.com/weekly-nlp-4/)</center>
 
 이처럼 NPLM에서는 one-hot vector와 같은 sparse 벡터 대신 **밀집 벡터(Dense vector)**로 임베딩(Embedding)하여 차원의 저주 (Curse of dimensionality)를 해결하고, 모든 n-gram을 저장하지 않아도 되기 때문에 기존 n-gram 언어 모델보다 **저장 공간의 이점**을 가지며, **단어의 유사도를 표현** 할 수 있습니다. 학습이 잘 완료된 dense vector를 아래 그림에서 한번 살펴 볼까요?
 ![](/images/NPLM/representation.png)
