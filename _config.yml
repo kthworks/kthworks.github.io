@@ -23,7 +23,7 @@ email                     : #kthwork9934@gmail.com
 description              : #"공부하고, 기록하고, 공유합니다 : )"
 url                      : https://kthworks.github.io/
 baseurl                  : ''
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "kthworks/kthworks.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
