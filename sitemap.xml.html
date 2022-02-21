@@ -1,32 +1,183 @@
----
-layout: null
----
-
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for post in site.posts %}
-    <url>
-        <loc>{{ site.url }}{{ post.url }}</loc>
-        {% if post.lastmod == null %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-        {% else %}
-        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
-        {% endif %}
+<urlset
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	  	  
+<!-- www.check-domains.com sitemap generator -->
 
-        {% if post.sitemap.changefreq == null %}
-        <changefreq>weekly</changefreq>
-        {% else %}
-        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
-        {% endif %}
-
-        {% if post.sitemap.priority == null %}
-        <priority>0.5</priority>
-        {% else %}
-        <priority>{{ post.sitemap.priority }}</priority>
-        {% endif %}
-
-    </url>
-    {% endfor %}
+<url>
+   <loc>https://kthworks.github.io/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/page2/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/feed.xml</loc>
+   <lastmod>2022-02-21T00:42:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/categories/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/tags/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/about/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/categories/ml</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/categories/math</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/categories/nlp</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/categories/kakao</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/categories/basic</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)-Pytorch%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%95%95%EC%B6%95/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/%EC%98%A4%ED%94%88-%EC%B1%84%ED%8C%85%EB%B0%A9/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/nlp/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D2/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/page3/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/page4/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/nlp/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D1/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/Secret-map/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/Dart-game/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/programmers-id-recommend/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/programmers-target-number/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/programmers-keypad/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/kakao/programmers-puppet-draw/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/basic/programmers-%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%EB%AA%BB%ED%95%9C%EC%84%A0%EC%88%98/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/basic/programmers-skill-check/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/basic/Fail-rate/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://kthworks.github.io/math/ml/Feature-Importance/</loc>
+   <lastmod>2022-02-20T13:17:11+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
 </urlset>
