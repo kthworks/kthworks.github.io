@@ -95,7 +95,7 @@ $x_{t}$ : 문장에서 t번째 단어가 C (Embedding matrix)를 거쳐 임베�
 #### from INPUT to OUTPUT
 우선, 인풋 단위부터 살펴 보겠습니다.  
 NPLM은 n-gram 기반 모델이기 때문에 n개의 단어 중 첫번째부터 n-1번째 까지의 단어가 input으로 사용되며, 마지막 n번째 단어가 target으로 사용됩니다.   
-위의 모델 그림에서는 $w_{t}$가 target이라고 했을 때, $w_{t-n+1}$부터 $w_{t-1}$까지 n-1개의 단어가 C (Embedding layer) 에서 Table look-up을 통해 임베딩 되는 것을 확인할 수 있습니다. 여기서 Table look-up 이란, 각 단어들의 Embedding vector들을 모아놓은 C layer에서 자신의 index에 해당하는 embedded vector를 가져오는 것을 말하는데요, 아래 그림처럼 총 4개의 단어가 5차원의 벡터로 embedding되어 있다고 가정하면, 번째 단어는 embedding matrix에서 3번째 행만 가지고 오면 되는 것이죠.
+위의 모델 그림에서는 $w_{t}$가 target이라고 했을 때, $w_{t-n+1}$부터 $w_{t-1}$까지 n-1개의 단어가 C (Embedding layer) 에서 Table look-up을 통해 임베딩 되는 것을 확인할 수 있습니다. 여기서 Table look-up 이란, 각 단어들의 Embedding vector들을 모아놓은 C layer에서 자신의 index에 해당하는 embedded vector를 가져오는 것을 말하는데요, 아래 그림처럼 총 4개의 단어가 5차원의 벡터로 embedding되어 있다고 가정하면, 3번째 단어는 embedding matrix에서 3번째 행만 가지고 오면 되는 것이죠.
 
 ![](/images/NPLM/lookup.png)
 
