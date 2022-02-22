@@ -1,0 +1,86 @@
+---
+categories:
+  - nlp
+
+tags:
+  - Embedding
+
+layout: single
+
+toc: true
+toc_sticky: true
+use_math: true
+comments: true
+---
+
+안녕하세요, 이번 포스팅에서는 [Word2Vec](https://arxiv.org/pdf/1301.3781.pdf)에 대해서 공부하고자 합니다. Word2Vec은 구글에서 2013년에 발표한 word embedding 방법 중 하나로, 이름에서도 알 수 있듯이 단어를 벡터로 바꿔준다는 (Word to Vector) 의미를 가지고 있습니다. Word2Vec은 특히 **단어 간 유사도와 관계를 잘 나타내서** 큰 주목을 받았고, 지금은 word embedding의 역사에 한 획을 그었다고 해도 무방할 정도로 유명한 기법이 되었습니다.
+
+Word2Vec으로 단어들을 학습시키면 컴퓨터는 아래 그림과 같이 **'연필 - 흑연 + 잉크 = 볼펜'** 이라는 답을 합니다. 연필에서 흑연을 빼고 잉크를 채워넣으면 볼펜이 된다는 것을 컴퓨터가 이해하고 대답할 수 있다는 것이 정말 놀랍지 않나요? 다른 예제로 테스트를 해보고 싶으시다면 [이 곳](https://word2vec.kr/search/?query=)에서 해보실 수 있습니다.
+
+![](/images/Word2Vec/similarity.png)
+
+### Word embedding과 Neural Probabilistic Language Model (NPLM)
+예전에는 컴퓨터에게 단어를 인식시키기 위해서 하나의 요소만 1이고 나머지는 0인 vector로 변환하는 [one-hot encoding](https://en.wikipedia.org/wiki/One-hot) 방법을 사용했습니다. 예를 들어서 '빨간', '사과는', '맛있다' 이렇게 총 3가지 단어가 있다면 아래와 같이 변환되었죠.
+
+'빨간  ' = [0 0 1]  
+'사과는' = [0 1 0]  
+'맛있다' = [1 0 0]
+
+그런데 **one-hot encoding 방식은** 단어 개수가 많아질수록 **차원의 저주(Curse of dimensionality)** 문제가 생기고, 벡터 간 독립성으로 인해 **단어 연관성을 표현하지 못하는** 등 여러 단점이 있었습니다. 이를 해결하기 위해 2003년에 Bengio 교수님께서 [Neural Probabilistic Language Model (NPLM)](https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/)을 제안하셨습니다. NPLM을 처음 보시는 분이거나 one-hot vector 사용 시 단점 등 word embedding에 대해 더 자세한 설명이 필요하신 분들은 위의 링크를 타고 들어가셔서 먼저 읽어보시기를 적극 권장 드립니다!
+
+### Word2Vec vs NNLM
+NPLM가 발표된 후 이보다 발전된 RNNLM, BiLM 등의 뉴럴 네트워크 기반 모델들이 발표되었는데요. 최근에는 이런 모델들을 **피드 포워드 신경망 언어모델 (Feed Forward Neural Network Language Model, 줄여서 NNLM)** 이라고 부릅니다. NPLM은 NNLM의 시초가 된 것이죠.
+
+Word2Vec은 NNLM의 단점이었던 많은 연산량을 개선하기 위해서 Hidden state를 과감하게 제거했습니다.
+
+<p align="center"><img src="/images/Word2Vec/comparison.png" height="300px" width="700px"></p>
+
+추가로, Word2Vec이 NNLM보다 훨씬 빠른 학습속도를 보이는 이유는 단지 Hidden layer를 제거했기 때문만은 아닙니다. Word2Vec에서는 연산량을 더욱 줄이기 위해서 **계층적 소프트맥스 (Hierarchical softmax)** 와 **네거티브 샘플링 (Negative sampling)** 이라는 기법을 사용했는데요. 이와 관련해서는 포스팅 마지막 부분에서 자세히 설명하도록 하겠습니다.
+
+Word2Vec에서는 2가지 방식을 제안했는데요, **Countinuous Bag of Words(CBOW)** 방식과 **Skip-gram** 방법입니다. **CBOW 모델은 주변 단어들로부터 target 단어를 예측**하는 방식이고, **Skip-gram 모델은 target 단어로부터 주변 단어를 예측**하는 방식입니다. 빠른 이해를 위해 예제와 함께 살펴보겠습니다.
+
+**'I am studying word2vec now'** 라는 문장에서 'word2vec' 을 target 단어라고 하고 주변 단어를 target 단어의 양 옆 단어라고 정의했을 때,
+
+**CBOW 방식 : I am studying ___ now**   
+
+**Skip-gram 방식 : I am ___ word2vec ___**
+
+을 풀어내는 것이죠. 아래에서 CBOW와 Skip-gram 모델을 하나씩 더욱 자세히 살펴 보도록 하겠습니다.
+
+
+### CBOW (Countinuous Bag of Words)
+CBOW의 모델 구조는 아래 그림과 같습니다. 그림에서는 window가 2인 형태로, target 단어로부터 양 옆 2개 단어까지 INPUT에 들어가도록 구성되었습니다.
+
+<p align="center"><img src="/Images/Word2Vec/cbow.png" height="500px" width="400px"></p>
+
+CBOW에서 주변 단어들은 동일한 weight를 공유하며 projection layer에서 합쳐집니다. Input에 들어가는 주변 단어들은 one-hot encoding 형태이기 때문에, 사실은 [저번 NPLM 포스팅](https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/)에서 나왔던 Table look-up 방식처럼 weight matrix로부터 자신의 인덱스에 해당하는 행만 가져오는 것이죠.
+
+[딥러닝을 위한 자연어 처리 입문](https://wikidocs.net/22660)에서 더욱 자세하게 설명하는 그림들이 있어 가지고 왔습니다.
+**'The fat cat sat on the mat'** 이라는 예시 문장에 대해서, 아래와 같이 표현할 수 있습니다.
+
+<p align="center"><img src="/Images/Word2Vec/detail.png" height="400px" width="800"></p>
+
+$x$는 V차원을 가지는 one-hot vector이고 $W$ matrix에서 look-up table을 통해 m차원의 vector로 임베딩이 되며, 각 주변 단어들이 모두 서로 다른 m차원의 vector로 임베딩되므로 최종적으로는 아래의 그림처럼 임베딩된 벡터들의 평균을 취해서 최종 embedded vector가 됩니다. 여기서 V는 전체 Vocabulary의 개수입니다.
+
+<p align="center"><img src="/Images/Word2Vec/detail1.png" height="400px" width="800"></p>
+
+이렇게 구해진 평균 벡터는 softmax를 거쳐 target vector를 예측하기 위해 다시 W' weight matrix와 곱해지게 됩니다.  
+
+<p align="center"><img src="/Images/Word2Vec/detail3.png" height="300px" width="1000"></p>
+
+따라서 최종적으로 CBOW에서의 연산량은 **Q = (N x D) + (D x log(V))**
+
+CBOW에서는 loss function으로 cross-entropy 함수를 사용하며, 수식으로 나타내면 아래와 같습니다.
+
+$$ cost(\hat{y},y) = -\sum_{j=1}^{V}y_{j}\log(\hat{y_{j}}) $$
+
+
+### N-gram의 단점과 NPLM에서 제안한 개선 방법
+
+
+### References
+[Baek Kyun Shin 님의 블로그](https://bkshin.tistory.com/entry/NLP-11-Word2Vec)   
+[딥러닝을 이용한 자연어 처리 입문](https://wikidocs.net/22660)   
+[graykode 님의 github](https://github.com/graykode/nlp-tutorial/blob/master/1-1.NNLM/NNLM.py)   
+
+[Word2Vec 논문](https://arxiv.org/pdf/1301.3781.pdf)
