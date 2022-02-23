@@ -19,6 +19,7 @@ Word2Vec으로 단어들을 학습시키면 컴퓨터는 아래 그림과 같이
 
 ![](/images/Word2Vec/similarity.png)
 
+
 ### Word embedding과 Neural Probabilistic Language Model (NPLM)
 예전에는 컴퓨터에게 단어를 인식시키기 위해서 하나의 요소만 1이고 나머지는 0인 vector로 변환하는 [one-hot encoding](https://en.wikipedia.org/wiki/One-hot) 방법을 사용했습니다. 예를 들어서 '빨간', '사과는', '맛있다' 이렇게 총 3가지 단어가 있다면 아래와 같이 변환되었죠.
 
@@ -33,7 +34,9 @@ NPLM가 발표된 후 이보다 발전된 RNNLM, BiLM 등의 뉴럴 네트워크
 
 Word2Vec은 NNLM의 단점이었던 많은 연산량을 개선하기 위해서 Hidden state를 과감하게 제거했습니다.
 
-<p align="center"><img src="/images/Word2Vec/comparison.png" height="300px" width="700px"></p>
+![](/images/Word2Vec/comparison.png){: width="300" height="300"}
+<img src="/images/Word2Vec/comparison.png" width="1000" height="300">
+
 
 추가로, Word2Vec이 NNLM보다 훨씬 빠른 학습속도를 보이는 이유는 단지 Hidden layer를 제거했기 때문만은 아닙니다. Word2Vec에서는 연산량을 더욱 줄이기 위해서 **계층적 소프트맥스 (Hierarchical softmax)** 와 **네거티브 샘플링 (Negative sampling)** 이라는 기법을 사용했는데요. 이와 관련해서는 포스팅 마지막 부분에서 자세히 설명하도록 하겠습니다.
 
@@ -51,36 +54,42 @@ Word2Vec에서는 2가지 방식을 제안했는데요, **Countinuous Bag of Wor
 ### CBOW (Countinuous Bag of Words)
 CBOW의 모델 구조는 아래 그림과 같습니다. 그림에서는 window가 2인 형태로, target 단어로부터 양 옆 2개 단어까지 INPUT에 들어가도록 구성되었습니다.
 
-<p align="center"><img src="/Images/Word2Vec/cbow.png" height="500px" width="400px"></p>
+![](/images/Word2Vec/cbow.png)
 
 CBOW에서 주변 단어들은 동일한 weight를 공유하며 projection layer에서 합쳐집니다. Input에 들어가는 주변 단어들은 one-hot encoding 형태이기 때문에, 사실은 [저번 NPLM 포스팅](https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/)에서 나왔던 Table look-up 방식처럼 weight matrix로부터 자신의 인덱스에 해당하는 행만 가져오는 것이죠.
 
 [딥러닝을 위한 자연어 처리 입문](https://wikidocs.net/22660)에서 더욱 자세하게 설명하는 그림들이 있어 가지고 왔습니다.
 **'The fat cat sat on the mat'** 이라는 예시 문장에 대해서, 아래와 같이 표현할 수 있습니다.
 
-<p align="center"><img src="/Images/Word2Vec/detail.png" height="400px" width="800"></p>
+![](/images/Word2Vec/detail.png)
+
 
 $x$는 V차원을 가지는 one-hot vector이고 $W$ matrix에서 look-up table을 통해 m차원의 vector로 임베딩이 되며, 각 주변 단어들이 모두 서로 다른 m차원의 vector로 임베딩되므로 최종적으로는 아래의 그림처럼 임베딩된 벡터들의 평균을 취해서 최종 embedded vector가 됩니다. 여기서 V는 전체 Vocabulary의 개수입니다.
 
-<p align="center"><img src="/Images/Word2Vec/detail1.png" height="400px" width="800"></p>
+![](/images/Word2Vec/detail1.png)
+
 
 이렇게 구해진 평균 벡터는 softmax를 거쳐 target vector를 예측하기 위해 다시 W' weight matrix와 곱해지게 됩니다.  
 
-<p align="center"><img src="/Images/Word2Vec/detail3.png" height="300px" width="1000"></p>
+![](/images/Word2Vec/detail3.png)
 
-따라서 최종적으로 CBOW에서의 연산량은 **Q = (N x D) + (D x log(V))**
 
 CBOW에서는 loss function으로 cross-entropy 함수를 사용하며, 수식으로 나타내면 아래와 같습니다.
 
 $$ cost(\hat{y},y) = -\sum_{j=1}^{V}y_{j}\log(\hat{y_{j}}) $$
 
 
-### N-gram의 단점과 NPLM에서 제안한 개선 방법
+### Skip-gram
+Skip-gram의 모델 구조는 CBOW와 반대로, Input은 target단어이므로 하나지만 output은 주변 단어이므로 여러개가 됩니다.
+
+
+
+
 
 
 ### References
 [Baek Kyun Shin 님의 블로그](https://bkshin.tistory.com/entry/NLP-11-Word2Vec)   
 [딥러닝을 이용한 자연어 처리 입문](https://wikidocs.net/22660)   
-[graykode 님의 github](https://github.com/graykode/nlp-tutorial/blob/master/1-1.NNLM/NNLM.py)   
+[Inhwan Lee 님의 블로그](https://lih0905.github.io/nlp/Word2vec_2/)   
 
 [Word2Vec 논문](https://arxiv.org/pdf/1301.3781.pdf)
