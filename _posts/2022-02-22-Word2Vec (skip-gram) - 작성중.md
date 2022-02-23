@@ -34,9 +34,7 @@ NPLM가 발표된 후 이보다 발전된 RNNLM, BiLM 등의 뉴럴 네트워크
 
 Word2Vec은 NNLM의 단점이었던 많은 연산량을 개선하기 위해서 Hidden state를 과감하게 제거했습니다.
 
-![](/images/Word2Vec/comparison.png){: width="300" height="300"}
-<img src="/images/Word2Vec/comparison.png" width="1000" height="300">
-
+<img src="/images/Word2Vec/comparison.png" width="900" height="300">
 
 추가로, Word2Vec이 NNLM보다 훨씬 빠른 학습속도를 보이는 이유는 단지 Hidden layer를 제거했기 때문만은 아닙니다. Word2Vec에서는 연산량을 더욱 줄이기 위해서 **계층적 소프트맥스 (Hierarchical softmax)** 와 **네거티브 샘플링 (Negative sampling)** 이라는 기법을 사용했는데요. 이와 관련해서는 포스팅 마지막 부분에서 자세히 설명하도록 하겠습니다.
 
@@ -54,37 +52,71 @@ Word2Vec에서는 2가지 방식을 제안했는데요, **Countinuous Bag of Wor
 ### CBOW (Countinuous Bag of Words)
 CBOW의 모델 구조는 아래 그림과 같습니다. 그림에서는 window가 2인 형태로, target 단어로부터 양 옆 2개 단어까지 INPUT에 들어가도록 구성되었습니다.
 
-![](/images/Word2Vec/cbow.png)
+<center>
+<img src="/images/Word2Vec/cbow.png" width="500" height="500">
+</center>
 
 CBOW에서 주변 단어들은 동일한 weight를 공유하며 projection layer에서 합쳐집니다. Input에 들어가는 주변 단어들은 one-hot encoding 형태이기 때문에, 사실은 [저번 NPLM 포스팅](https://kthworks.github.io/nlp/Neural-Probabilistic-Language-Model-(NPLM)/)에서 나왔던 Table look-up 방식처럼 weight matrix로부터 자신의 인덱스에 해당하는 행만 가져오는 것이죠.
 
 [딥러닝을 위한 자연어 처리 입문](https://wikidocs.net/22660)에서 더욱 자세하게 설명하는 그림들이 있어 가지고 왔습니다.
 **'The fat cat sat on the mat'** 이라는 예시 문장에 대해서, 아래와 같이 표현할 수 있습니다.
 
-![](/images/Word2Vec/detail.png)
+<img src="/images/Word2Vec/detail.png" width="1000" height="500">
 
 
 $x$는 V차원을 가지는 one-hot vector이고 $W$ matrix에서 look-up table을 통해 m차원의 vector로 임베딩이 되며, 각 주변 단어들이 모두 서로 다른 m차원의 vector로 임베딩되므로 최종적으로는 아래의 그림처럼 임베딩된 벡터들의 평균을 취해서 최종 embedded vector가 됩니다. 여기서 V는 전체 Vocabulary의 개수입니다.
 
-![](/images/Word2Vec/detail1.png)
+<img src="/images/Word2Vec/detail1.png" width="1000" height="500">
 
 
 이렇게 구해진 평균 벡터는 softmax를 거쳐 target vector를 예측하기 위해 다시 W' weight matrix와 곱해지게 됩니다.  
 
-![](/images/Word2Vec/detail3.png)
+<img src="/images/Word2Vec/detail3.png" width="1000" height="300">
 
 
 CBOW에서는 loss function으로 cross-entropy 함수를 사용하며, 수식으로 나타내면 아래와 같습니다.
 
 $$ cost(\hat{y},y) = -\sum_{j=1}^{V}y_{j}\log(\hat{y_{j}}) $$
 
+그런데, target vector인 y는 one-hot vector로 encoding되어 있으므로, y = $y_{c}$(target 단어)일 때를 제외하고 모든 경우에 y = 0이 됩니다. 따라서 좀 더 간단하게 아래와 같이 표현할 수 있습니다.
+
+$$ cost(\hat{y},y) = -y_{c}\log(\hat{y_{c}}) = -1*\log(\hat{y_{c}}) = -\log(\hat{y_{c}})$$
+
+마지막으로, cost를 줄이는 방향으로 W와 W'를 최적화 해야겠죠? $ J = cost(\hat{y},y) $ 라고 했을 때,
+
+$$ J = -\log P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m}) $$
+$$   = -\log P(u_{c} | \hat{v})$$
+$$   = -\log \frac{\exp(u_{c}^{T}\hat{v})}{\Sigma_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})} $$
+$$   = -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v}) $$
+
+
+가 됩니다. 한 줄 씩 직관적으로 풀어서 설명해보겠습니다.
+
+**첫째줄** : $\hat{y_{c}}$는 '주변 단어들이 주어졌을 때 target 단어가 올 확률' 이므로 $P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m})$로 치환됩니다.
+
+**둘째줄** : 이 확률은 결국 주변 단어들이 projection layer에서 합쳐진 평균벡터 $\hat{v}$가 주어졌을 때, U matrix (위의 그림에서는 W' matrix에 해당합니다)에서 target 단어에 대한 인덱스를 가지는 $u_{c}$가 올 확률이 되므로 치환됩니다.
+
+**셋째줄** : 또한 이 확률은 softmax를 통해 만들어진 확률이므로 softmax 함수로도 표현이 가능합니다.
+
+**넷째줄** : 수식을 보기 좋게 풀어 줍니다.
+
+최종적으로, 우리의 목적은 J를 최소화 하는 것입니다.
+
+대표적인 Optimize 기법인 Stochastic gradient descent (SGD)를 통해서 우리가 최적화 하고자 하는 단어 임베딩 벡터인 $W$와 $U$에 대한 편미분을 통해 gradient를 구해서 아래와 같이 업데이트 할 수 있습니다.
+
+$$ U_{new} = U - \alpha \frac{\partial{J}}{\partial{U}}$$
+$$ W_{new} = W - \alpha \frac{\partial{J}}{\partial{W}}$$
+
+
 
 ### Skip-gram
 Skip-gram의 모델 구조는 CBOW와 반대로, Input은 target단어이므로 하나지만 output은 주변 단어이므로 여러개가 됩니다.
 
+<center>
+<img src="/images/Word2Vec/skipgram.png" width="400" height="500">
+</center>
 
-
-
+Skip-gram에서는 Input이 단어 하나이므로 projection layer에서 평균을 취하지 않고 임베딩 된 값 그대로 사용합니다. CBOW와 동일하게 one-hot vector인 $w(t)$는 weight matrix $W$에서 table-lookup을 통해 m차원의 벡터로 projection layer에 도착합니다.
 
 
 ### References
