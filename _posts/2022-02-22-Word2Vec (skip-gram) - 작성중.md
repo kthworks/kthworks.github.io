@@ -90,12 +90,9 @@ $$= -\log P(u_{c} | \hat{v})$$
 
 $$= -\log \frac{\exp(u_{c}^{T}\hat{v})}{\Sigma_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})}$$
 
-$$= -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})$$
+$$= -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})$$ 가 됩니다. 한 줄 씩 직관적으로 풀어서 설명해보겠습니다.
 
-
-가 됩니다. 한 줄 씩 직관적으로 풀어서 설명해보겠습니다.   
-
-**첫째줄** : $\hat{y_{c}}$는 **주변 단어들이 주어졌을 때 target 단어가 올 확률** 이므로 $$ P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m}) $$ 로 치환됩니다.
+**첫째줄** : $\hat{y_{c}}$ 는 **주변 단어들이 주어졌을 때 target 단어가 올 확률** 이므로 $$ P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m}) $$ 로 치환됩니다.
 
 **둘째줄** : 이 확률은 결국 주변 단어들이 projection layer에서 합쳐진 평균벡터 $\hat{v}$ 가 주어졌을 때, $U$ matrix (위의 그림에서는 $W'$ matrix에 해당합니다)에서 target 단어에 대한 인덱스를 가지는 $u_{c}$가 올 확률이 되므로 치환됩니다.
 
@@ -111,21 +108,21 @@ $$ U^{(new)} = U^{(old)} - \alpha \cdot \frac{\partial{J}}{\partial{U^{(old)}}} 
 
 
 ##### CBOW Weight Update
- 모델의 Weight update를 진행하려면 어떻게 해야 할까요? 먼저 update를 하고싶은 대상에 대한 gradient를 구해야겠죠. 즉, Loss function인 J에 대해서 우리가 학습시키고 싶은 parameter인 $U$와 $V$의 각 요소 ($U_{ij}$, $V_{ij}$)에 대해 편미분을 진행해야 합니다. 먼저 $U_{ij}$ 에 대한 업데이트를 해보겠습니다.
+모델의 Weight update를 진행하려면 어떻게 해야 할까요? 먼저 update를 하고싶은 대상에 대한 gradient를 구해야겠죠. 즉, Loss function인 J에 대해서 우리가 학습시키고 싶은 parameter인 $U$와 $V$의 각 요소 ($U_{ij}$, $V_{ij}$)에 대해 편미분을 진행해야 합니다. 먼저 $U_{ij}$ 에 대한 업데이트를 해보겠습니다.
 
- Chain rule을 사용하여 $U_{ij}$에 대한 gradient를 표현하면 아래와 같습니다.
+Chain rule을 사용하여 $U_{ij}$에 대한 gradient를 표현하면 아래와 같습니다.
 
- $$\frac{\partial J}{\partial U_{ij}} = \frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}}$$
+$$\frac{\partial J}{\partial U_{ij}} = \frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}}$$
 
- $ \frac{\partial J}{\partial z_{j}} $ 는 cross entropy의 gradient이므로 $z_{j} - y_{j}$로 간단히 표현할 수 있습니다.
+$ \frac{\partial J}{\partial z_{j}} $ 는 cross entropy의 gradient이므로 $z_{j} - y_{j}$로 간단히 표현할 수 있습니다.
 
- $ \frac{\partial z_{j}}{\partial U_{ij}} = \frac{\partial (u_{j}^{T}\hat{v})}{\partial U_{ij}} = \hat{v_{i}}$ 이므로 최종적으로 $\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}} = (z_{j} - y_{j})\cdot \hat{v_{i}}$가 됩니다.
+$ \frac{\partial z_{j}}{\partial U_{ij}} = \frac{\partial (u_{j}^{T}\hat{v})}{\partial U_{ij}} = \hat{v_{i}}$ 이므로 최종적으로 $\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}} = (z_{j} - y_{j})\cdot \hat{v_{i}}$가 됩니다.
 
- 따라서, $U_{ij}^{(new)} = U_{ij}^{(old)} - \alpha \cdot (z_{j} - y_{j})\cdot \hat{v_{i}}$ 로 업데이트 할 수 있습니다.
+따라서, $U_{ij}^{(new)} = U_{ij}^{(old)} - \alpha \cdot (z_{j} - y_{j})\cdot \hat{v_{i}}$ 로 업데이트 할 수 있습니다.
 
- 마찬가지로 Chain rule을 사용하여 $W_{ij}$에 대한 gradient를 표현하면 아래와 같습니다.
+마찬가지로 Chain rule을 사용하여 $W_{ij}$에 대한 gradient를 표현하면 아래와 같습니다.
 
-$$\frac{\partial J}{\partial W_{ij}} = \frac{\partial J}{\partial \hat{v_{i}}}\cdot\frac{\partial \hat{v_{i}}}{\partial W_{ij}}$$
+$$ \frac{\partial J}{\partial W_{ij}} = \frac{\partial J}{\partial \hat{v_{i}}}\cdot\frac{\partial \hat{v_{i}}}{\partial W_{ij}} $$
 
 $\frac{\partial J}{\partial \hat{v_{i}}}$는 다시 $\sum_{j=1}^{|V|}\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial \hat{v_{i}}}$로 분리할 수 있으며 이를 계산하면 $\sum_{j=1}^{|V|}(z_{j}-y_{j})\cdot U_{ij}$ 입니다. 여기서, $\hat{v}$의 $i$번째 노드는 score layer($z$)의 모든 노드와 연결되어 있기 때문에 score layer로부터 흘러들어오는 j개의 loss를 모두 합쳐주어야 합니다. 따라서 $\Sigma$ 텀이 추가되었습니다.  
 
@@ -146,6 +143,7 @@ Skip-gram의 모델 구조는 CBOW와 반대로, Input은 target단어이므로 
 </center>
 
 Skip-gram에서는 Input이 단어 하나이므로 projection layer에서 평균을 취하지 않고 임베딩 된 값 그대로 사용합니다. CBOW와 동일하게 one-hot vector인 $w(t)$는 weight matrix $W$에서 table-lookup을 통해 m차원의 벡터로 projection layer에 도착합니다.
+
 
 
 ### References
