@@ -118,9 +118,9 @@ Chain rule을 사용하여 $U_{ij}$에 대한 gradient를 표현하면 아래와
 
 $$\frac{\partial J}{\partial U_{ij}} = \frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}}$$
 
-$ \frac{\partial J}{\partial z_{j}} $ 는 cross entropy의 gradient이므로 $z_{j} - y_{j}$로 간단히 표현할 수 있습니다.
+$ \frac{\partial J}{\partial z_{j}} $ 는 cross entropy의 gradient이므로 $z_{j} - y_{j}$ 로 간단히 표현할 수 있습니다.
 
-$ \frac{\partial z_{j}}{\partial U_{ij}} = \frac{\partial (u_{j}^{T}\hat{v})}{\partial U_{ij}} = \hat{v_{i}}$ 이므로 최종적으로 $\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}} = (z_{j} - y_{j})\cdot \hat{v_{i}}$가 됩니다.
+$ \frac{\partial z_{j}}{\partial U_{ij}} = \frac{\partial (u_{j}^{T}\hat{v})}{\partial U_{ij}} = \hat{v_{i}}$ 이므로 최종적으로 $\frac{\partial J}{\partial z_{j}} \cdot \frac{\partial z_{j}}{\partial U_{ij}} = (z_{j} - y_{j}) \cdot \hat{v_{i}}$ 가 됩니다.
 
 따라서, $U_{ij}^{(new)} = U_{ij}^{(old)} - \alpha \cdot (z_{j} - y_{j})\cdot \hat{v_{i}}$ 로 업데이트 할 수 있습니다.
 
