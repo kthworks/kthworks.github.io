@@ -128,7 +128,7 @@ $ \frac{\partial z_{j}}{\partial U_{ij}} = \frac{\partial (u_{j}^{T}\hat{v})}{\p
 
 $$ \frac{\partial J}{\partial W_{ij}} = \frac{\partial J}{\partial \hat{v_{i}}}\cdot\frac{\partial \hat{v_{i}}}{\partial W_{ij}} $$
 
-$\frac{\partial J}{\partial \hat{v_{i}}}$ 는 다시 $\sum_{j=1}^{|V|}\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial \hat{v_{i}}}$ 로 분리할 수 있으며 이를 계산하면 $\sum_{j=1}^{|V|}(z_{j}-y_{j})\cdot U_{ij}$ 입니다. 여기서, $\hat{v}$ 의 $i$ 번째 노드는 score layer($z$)의 모든 노드와 연결되어 있기 때문에 score layer로부터 흘러들어오는 j개의 loss를 모두 합쳐주어야 합니다. 따라서 $\Sigma$ 텀이 추가되었습니다.  
+$ \frac{\partial J}{\partial \hat{v_{i}}}$ 는 다시 $ \sum_{j=1}^{|V|} \frac{\partial J}{\partial z_{j}} \cdot \frac{\partial z_{j}}{\partial \hat{v_{i}}}$ 로 분리할 수 있으며 이를 계산하면 $ \sum_{j=1}^{|V|}(z_{j}-y_{j}) \cdot U_{ij}$ 입니다. 여기서, $ \hat{v}$ 의 $i$ 번째 노드는 score layer($z$)의 모든 노드와 연결되어 있기 때문에 score layer로부터 흘러들어오는 j개의 loss를 모두 합쳐주어야 합니다. 따라서 $\Sigma$ 텀이 추가되었습니다.  
 
 $\frac{\partial \hat{v_{i}}}{\partial W_{ij}}$ 는 $\frac{1}{C} \cdot x_{k}$로 구할 수 있는데요. 여기서 C는 주변 단어의 개수를 뜻하고 k는 input vector($x$)의 k번째 차원을 뜻합니다. CBOW에서는 weight matrix를 공유하기 때문에 Projection layer($\hat{v}$)와 input layer 사이의 error는 총 C개의 주변단어가 projection layer로 가면서 생기는 C개의 error가 중첩됩니다. 따라서 loss를 다시 C로 나눠주어서 평균적인 에러에 대해 보정을 해주는 것이죠.
 
