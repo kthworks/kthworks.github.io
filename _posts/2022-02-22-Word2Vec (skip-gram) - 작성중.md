@@ -84,10 +84,10 @@ $$ cost(\hat{y},y) = -y_{c}\log(\hat{y_{c}}) = -1*\log(\hat{y_{c}}) = -\log(\hat
 
 마지막으로, cost를 줄이는 방향으로 W와 W'를 최적화 해야겠죠? $ J = cost(\hat{y},y) $ 라고 했을 때,
 
-$$ J = -\log P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m}) $$
-$$   = -\log P(u_{c} | \hat{v})$$
-$$   = -\log \frac{\exp(u_{c}^{T}\hat{v})}{\Sigma_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})} $$
-$$   = -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v}) $$
+$$J = -\log P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m})$$ \
+$$= -\log P(u_{c} | \hat{v})$$ \
+$$= -\log \frac{\exp(u_{c}^{T}\hat{v})}{\Sigma_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})}$$\
+$$= -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})$$
 
 
 가 됩니다. 한 줄 씩 직관적으로 풀어서 설명해보겠습니다.
@@ -102,11 +102,37 @@ $$   = -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v}) $$
 
 최종적으로, 우리의 목적은 J를 최소화 하는 것입니다.
 
-대표적인 Optimize 기법인 Stochastic gradient descent (SGD)를 통해서 우리가 최적화 하고자 하는 단어 임베딩 벡터인 $W$와 $U$에 대한 편미분을 통해 gradient를 구해서 아래와 같이 업데이트 할 수 있습니다.
+대표적인 Optimize 기법인 Stochastic gradient descent (SGD)를 통해서 우리가 최적화 하고자 하는 단어 임베딩 벡터인 $W$와 $U$에 대한 편미분을 통해 gradient를 구해서 아래와 같이 업데이트 할 수 있습니다. 여기서 $\alpha$는 learning rate 입니다.
 
-$$ U_{new} = U - \alpha \frac{\partial{J}}{\partial{U}}$$
-$$ W_{new} = W - \alpha \frac{\partial{J}}{\partial{W}}$$
+$$ U^{(new)} = U^{(old)} - \alpha \cdot \frac{\partial{J}}{\partial{U^{(old)}}} , \quad  W^{(new)} = W^{(old)} - \alpha \cdot \frac{\partial{J}}{\partial{W^{(old)}}}$$
 
+
+##### CBOW Weight Update
+ 모델의 Weight update를 진행하려면 어떻게 해야 할까요? 먼저 update를 하고싶은 대상에 대한 gradient를 구해야겠죠. 즉, Loss function인 J에 대해서 우리가 학습시키고 싶은 parameter인 $U$와 $V$의 각 요소 ($U_{ij}$, $V_{ij}$)에 대해 편미분을 진행해야 합니다. 먼저 $U_{ij}$ 에 대한 업데이트를 해보겠습니다.
+
+ Chain rule을 사용하여 $U_{ij}$에 대한 gradient를 표현하면 아래와 같습니다.
+
+ $$\frac{\partial J}{\partial U_{ij}} = \frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}}$$
+
+ $ \frac{\partial J}{\partial z_{j}} $ 는 cross entropy의 gradient이므로 $z_{j} - y_{j}$로 간단히 표현할 수 있습니다.
+
+ $ \frac{\partial z_{j}}{\partial U_{ij}} = \frac{\partial (u_{j}^{T}\hat{v})}{\partial U_{ij}} = \hat{v_{i}}$ 이므로 최종적으로 $\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial U_{ij}} = (z_{j} - y_{j})\cdot \hat{v_{i}}$가 됩니다.
+
+ 따라서, $U_{ij}^{(new)} = U_{ij}^{(old)} - \alpha \cdot (z_{j} - y_{j})\cdot \hat{v_{i}}$ 로 업데이트 할 수 있습니다.
+
+ 마찬가지로 Chain rule을 사용하여 $W_{ij}$에 대한 gradient를 표현하면 아래와 같습니다.
+
+$$\frac{\partial J}{\partial W_{ij}} = \frac{\partial J}{\partial \hat{v_{i}}}\cdot\frac{\partial \hat{v_{i}}}{\partial W_{ij}}$$
+
+$\frac{\partial J}{\partial \hat{v_{i}}}$는 다시 $\sum_{j=1}^{|V|}\frac{\partial J}{\partial z_{j}}\cdot\frac{\partial z_{j}}{\partial \hat{v_{i}}}$로 분리할 수 있으며 이를 계산하면 $\sum_{j=1}^{|V|}(z_{j}-y_{j})\cdot U_{ij}$ 입니다. 여기서, $\hat{v}$의 $i$번째 노드는 score layer($z$)의 모든 노드와 연결되어 있기 때문에 score layer로부터 흘러들어오는 j개의 loss를 모두 합쳐주어야 합니다. 따라서 $\Sigma$ 텀이 추가되었습니다.  
+
+$\frac{\partial \hat{v_{i}}}{\partial W_{ij}}$ 는 $\frac{1}{C} \cdot x_{k}$로 구할 수 있는데요. 여기서 C는 주변 단어의 개수를 뜻하고 k는 input vector($x$)의 k번째 차원을 뜻합니다. CBOW에서는 weight matrix를 공유하기 때문에 Projection layer($\hat{v}$)와 input layer 사이의 error는 총 C개의 주변단어가 projection layer로 가면서 생기는 C개의 error가 중첩됩니다. 따라서 loss를 다시 C로 나눠주어서 평균적인 에러에 대해 보정을 해주는 것이죠.
+
+따라서  $\frac{\partial J}{\partial W_{ij}} = \sum_{j=1}^{|V|}(z_{j}-y_{j})\cdot U_{ij}\cdot \frac{1}{C} \cdot x_{k}$ 가 됩니다.
+
+참고로, $x$는 one-hot vector이므로 $x_{k}$는 C개의 $x_{Ck}$ 중 단 하나만 1이 되고 나머지는 모두 0이 됩니다.
+
+최종적으로  $W_{ij}^{(new)} = W_{ij}^{(old)} - \alpha \cdot  \sum_{j=1}^{|V|}(z_{j}-y_{j})\cdot U_{ij}\cdot \frac{1}{C} \cdot x_{k}$ 로 업데이트 할 수 있습니다.
 
 
 ### Skip-gram
@@ -123,5 +149,6 @@ Skip-gram에서는 Input이 단어 하나이므로 projection layer에서 평균
 [Baek Kyun Shin 님의 블로그](https://bkshin.tistory.com/entry/NLP-11-Word2Vec)   
 [딥러닝을 이용한 자연어 처리 입문](https://wikidocs.net/22660)   
 [Inhwan Lee 님의 블로그](https://lih0905.github.io/nlp/Word2vec_2/)   
+[Alex Minnaar's Blog](http://alexminnaar.com/2015/05/18/word2vec-tutorial-continuousbow.html)
 
 [Word2Vec 논문](https://arxiv.org/pdf/1301.3781.pdf)
