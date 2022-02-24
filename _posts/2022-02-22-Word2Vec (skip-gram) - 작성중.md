@@ -84,9 +84,12 @@ $$ cost(\hat{y},y) = -y_{c}\log(\hat{y_{c}}) = -1*\log(\hat{y_{c}}) = -\log(\hat
 
 마지막으로, cost를 줄이는 방향으로 W와 W'를 최적화 해야겠죠? $ J = cost(\hat{y},y) $ 라고 했을 때,
 
-$$J = -\log P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m})$$ \
-$$= -\log P(u_{c} | \hat{v})$$ \
-$$= -\log \frac{\exp(u_{c}^{T}\hat{v})}{\Sigma_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})}$$\
+$$J = -\log P(w_{c} | w_{c-m}, ... , w_{c-1}, w_{c+1}, ... , w_{c+m})$$
+
+$$= -\log P(u_{c} | \hat{v})$$
+
+$$= -\log \frac{\exp(u_{c}^{T}\hat{v})}{\Sigma_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})}$$
+
 $$= -u_{c}^{T}\hat{v} + \log \sum_{j=1}^{|V|}\exp(u_{j}^{T}\hat{v})$$
 
 
