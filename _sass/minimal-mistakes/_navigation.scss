@@ -200,7 +200,7 @@
       margin-left: 0;
     }
   }
-  
+
   img{
     -webkit-transition: none;
     transition: none;
@@ -534,7 +534,7 @@
   font-size: $type-size-6;
 
   @include breakpoint($large) {
-    font-size: $type-size-7;
+    font-size: 0.8em; //$type-size-7;
   }
 
   a {
