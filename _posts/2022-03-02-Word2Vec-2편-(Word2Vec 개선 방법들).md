@@ -102,17 +102,19 @@ Nagetive Sampling의 핵심 아이디어는, Softmax를 Vocabulary의 전체 단
 주변단어와 중심단어를 positive samples라고 하고, 그 외의 단어들을 negative samples라고 합시다.
 positive samples와 negative samples를 합쳐 총 k개의 단어를 샘플링 합니다.
 
-$$ Samples = \{w_{1}, ... , w_{k}\} $$
+$$ Samples = \{w_{1}, ... , w_{k}\} $$  
 
-중심단어를 $c$, 주변 단어를 $o$, negative samples에 해당하는 단어를 $w_{i}$라고 했을 때 우리의 학습 목표는 $p(o | c)$  증가시키고 $p(w_{i} | c)$ 는 감소시키는 방향으로 모델을 훈련시키는 것이 됩니다. 다시 말해서 $p(o | c)$ 와 $1 - p(w_{i} | c)$ 모두를 증가시키면 되는 것이죠. 이를 수식으로 나타내면 아래와 같습니다.
+중심단어를 $c$ , 주변 단어를 $o$ , negative samples에 해당하는 단어를 $w_{i}$ 라고 했을 때 우리의 학습 목표는 $p(o | c)$ 는 증가시키고 $p(w_{i} | c)$ 는 감소시키는 방향으로 모델을 훈련시키는 것이 됩니다.  
 
-$$ maximize \, \log (\,\, p(o|c) \cdot \prod_{i=1}^{k} (1-p(w_{i} | c))\,) $$
+다시 말해서 $p(o | c)$ 와 $1 - p(w_{i} | c)$ 를 둘 다 증가시키면 되는 것이죠. 이를 수식으로 나타내면 아래와 같습니다.
 
-$$ = maximize \, (\, \log p(o|c) + \sum_{i=1}^{k} \log (1-p(w_{i} | c))) $$
+$$ maximize \, \log (\,\, p(o|c) \cdot \prod_{i=1}^{k} (1-p(w_{i} | c))\,) $$  
 
-$p(w | c)$를 Sigmoid 함수를 사용하여 아래와 같이 정의할 수 있습니다.
+$$ = maximize \, (\, \log p(o|c) + \sum_{i=1}^{k} \log (1-p(w_{i} | c))) $$  
 
-$$ p(w|c) := \sigma(u_{w}^{T} v_{c})  $$
+$p(w | c)$ 를 Sigmoid 함수를 사용하여 아래와 같이 정의할 수 있습니다.
+
+$$ p(w|c) := \sigma(u_{w}^{T} v_{c})  $$  
 
 여기서 $u_{w}$는 $W'$ weight matrix의 w번째 행에 해당하는 벡터이고, $v_{c}$는 중심단어가 $W$ matrix를 통해 임베딩된 벡터이자 projection layer의 벡터이기도 합니다. 시그모이드 함수는 $ 1 - \sigma(x) = \sigma(-x)$ 를 만족하므로 우리의 목표 함수 (Objective function)를 다시 쓰면,
 
