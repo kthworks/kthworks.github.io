@@ -36,7 +36,7 @@ Word2Vec은 NNLM의 단점이었던 많은 연산량을 개선하기 위해서 H
 
 <img src="/images/Word2Vec/comparison.png" width="900" height="300">
 
-추가로, Word2Vec이 NNLM보다 훨씬 빠른 학습속도를 보이는 이유는 단지 Hidden layer를 제거했기 때문만은 아닙니다. Word2Vec에서는 연산량을 더욱 줄이기 위해서 **계층적 소프트맥스 (Hierarchical softmax)** 와 **네거티브 샘플링 (Negative sampling)** 이라는 기법을 사용했는데요. 이와 관련해서는 다음 포스팅에서 자세히 설명하도록 하겠습니다.
+추가로, Word2Vec이 NNLM보다 훨씬 빠른 학습속도를 보이는 이유는 단지 Hidden layer를 제거했기 때문만은 아닙니다. Word2Vec에서는 연산량을 더욱 줄이기 위해서 **계층적 소프트맥스 (Hierarchical softmax)** 와 **네거티브 샘플링 (Negative sampling)** 이라는 기법을 사용할 수 있는데요. 이와 관련해서는 다음 포스팅에서 자세히 설명하도록 하겠습니다.
 
 Word2Vec에서는 2가지 방식을 제안했는데요, **Countinuous Bag of Words(CBOW)** 방식과 **Skip-gram** 방법입니다. **CBOW 모델은 주변 단어들로부터 target 단어를 예측**하는 방식이고, **Skip-gram 모델은 target 단어로부터 주변 단어를 예측**하는 방식입니다. 빠른 이해를 위해 예제와 함께 살펴보겠습니다.
 
