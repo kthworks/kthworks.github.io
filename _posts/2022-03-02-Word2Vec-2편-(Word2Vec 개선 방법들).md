@@ -100,12 +100,12 @@ Nagetive Sampling의 핵심 아이디어는, Softmax를 Vocabulary의 전체 단
 
 그렇다면 어떤 식으로 샘플링을 하고, 학습을 시켜야 할까요?
 주변단어와 중심단어를 positive samples라고 하고, 그 외의 단어들을 negative samples라고 합시다.
-positive samples와 negative samples를 합쳐 총 k개의 단어를 샘플링 합니다.
+positive samples와 negative samples를 합쳐 총 k개의 단어를 샘플링 합니다.  
 
-$$ Samples = \{w_{1}, ... , w_{k}\} $$  
+$$Samples = \{w_{1}, ... , w_{k}\}$$  
 
 중심단어를 $c$ , 주변 단어를 $o$ , negative samples에 해당하는 단어를 $w_{i}$ 라고 합시다.
-우리의 학습 목표는 $p(o | c)$ 는 증가시키고 $p(w_{i} | c)$ 는 감소시키는 방향으로 모델을 훈련시키는 것이 됩니다.    
+우리의 학습 목표는 $p(o | c)$ 는 증가시키고 $p(w_{i} | c)$ 는 감소시키는 방향으로 모델을 훈련시키는 것이 됩니다.  
 
 다시 말해서, $p(o|c)$ 와 $1 - p(w_{i}|c)$ 를 둘 다 증가시키면 되는 것이죠. 이를 수식으로 나타내면 아래와 같습니다.
 
