@@ -110,11 +110,11 @@ $$Samples = \{w_{1}, ... , w_{k}\}$$
 다시 말해서, $p(o|c)$ 와 $ 1 - p(w_{i}|c) $ 를 둘 다 증가시키면 되는 것이죠.
 이를 수식으로 나타내면 아래와 같습니다.  
 
-$$maximize (\log (\,\, p(o|c) \cdot \prod_{i=1}^{k} (1- p(w_{i}|c)))$$
+$$maximize (\log (\,\, p(o|c) \cdot \prod_{i=1}^{k} (1- p(w_{i}|c)))$$  
 
-$$= maximize \, (\, \log p(o|c) + \sum_{i=1}^{k} \log (1-p(w_{i} | c)))$$  
+$$= maximize \, (\, \log p(o|c) + \sum_{i=1}^{k} \log (1-p(w_{i} | c)))$$   
 
-다음으로, $p(w|c)$ 를 Sigmoid 함수를 사용하여 아래와 같이 정의할 수 있습니다.
+다음으로, 중심단어에 대해 단어 w가 올 확률을 Sigmoid 함수를 사용하여 아래와 같이 정의할 수 있습니다.
 
 $$p(w|c) := \sigma(u_{w}^{T} v_{c})$$
 
@@ -182,9 +182,9 @@ $$ score(w_i, w_j)  = \frac{f(w_i w_j) - \delta}{f(w_i) f(w_j)} $$
 
 
 ## References
-[BEOMSU KIM 님의 블로그](https://shuuki4.wordpress.com/2016/01/27/word2vec-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EB%A1%A0-%EC%A0%95%EB%A6%AC/)
+[BEOMSU KIM 님의 블로그](https://shuuki4.wordpress.com/2016/01/27/word2vec-%EA%B4%80%EB%A0%A8-%EC%9D%B4%EB%A1%A0-%EC%A0%95%EB%A6%AC/)  
 [Inhwan Lee 님의 블로그](https://lih0905.github.io/nlp/Word2vec_2/)   
-[YJJo 님의 블로그](https://yjjo.tistory.com/14)
+[YJJo 님의 블로그](https://yjjo.tistory.com/14)  
 
-[Word2Vec 논문](https://arxiv.org/pdf/1301.3781.pdf)
-[Word2Vec 개선 방법 논문](https://proceedings.neurips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf)
+[Word2Vec 논문](https://arxiv.org/pdf/1301.3781.pdf)  
+[Word2Vec 개선 방법 논문](https://proceedings.neurips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf)  
