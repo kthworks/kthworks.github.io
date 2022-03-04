@@ -112,11 +112,11 @@ $$Samples = \{w_{1}, ... , w_{k}\}$$
 
 $$maximize (\log (\,\, p(o|c) \cdot \prod_{i=1}^{k} (1- p(w_{i}|c)))$$
 
-$$= maximize \, (\, \log p(o|c) + \sum_{i=1}^{k} \log (1-p(w_{i} | c)))$$
+$$= maximize \, (\, \log p(o|c) + \sum_{i=1}^{k} \log (1-p(w_{i} | c)))$$  
 
-다음으로, $p(w|c)$ 를 Sigmoid 함수를 사용하여 아래와 같이 정의할 수 있습니다.  
+다음으로, $p(w|c)$ 를 Sigmoid 함수를 사용하여 아래와 같이 정의할 수 있습니다.
 
-$$ p(w|c) := \sigma(u_{w}^{T} v_{c})  $$
+$$p(w|c) := \sigma(u_{w}^{T} v_{c})$$
 
 여기서 $u_{w}$는 $W'$ weight matrix의 w번째 행에 해당하는 벡터이고, $v_{c}$는 중심단어가 $W$ matrix를 통해 임베딩된 벡터이자 projection layer의 벡터이기도 합니다. 시그모이드 함수는 $ 1 - \sigma(x) = \sigma(-x)$ 를 만족하므로 우리의 목표 함수 (Objective function)를 다시 쓰면,
 
