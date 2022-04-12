@@ -50,7 +50,7 @@ Hierarchial Softmax를 사용할 경우 기존 CBOW나 Skip-gram에 있던 $W'$ 
 **\[[x]]** : x가 true일 경우 1, false일 경우 -1을 반환하는   
 **h** : projection layer의 vector  
 **${v'}_{i}$** : 각 Internal node(내부 노드)가 가지는 N차원의 weight vector  
-$\mathbf{\sigma(x)}$ : sigmoid function ( $ \frac{1}{1+\exp(-x)}$   
+$\mathbf{\sigma(x)}$ : sigmoid function ( $ \frac{1}{1+\exp(-x)})$   
 
 
 ### Equation
