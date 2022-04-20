@@ -1,5 +1,5 @@
 ---
-title: "[Programmers] 스킬체크 (Level 1)"
+title: "[Programmers] - 스킬체크 (Level 1)"
 
 categories:
   - basic
