@@ -6,7 +6,7 @@ categories:
 
 tags:
 
-  - Algorithm
+  - coding_test
 
 
 layout: single

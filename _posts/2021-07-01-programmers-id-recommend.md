@@ -6,9 +6,7 @@ categories:
 
 tags:
 
-  - Algorithm
-  - 문자열
-  - 정규표현식
+  - coding_test
 
 layout: single
 

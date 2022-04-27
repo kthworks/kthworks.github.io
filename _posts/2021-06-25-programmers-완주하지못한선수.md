@@ -6,8 +6,7 @@ categories:
 
 tags:
 
-  - Algorithm
-  - Hash
+  - coding_test
 
 layout: single
 

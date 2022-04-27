@@ -5,7 +5,7 @@ categories:
   - basic
 
 tags:
-  - Algorithm
+  - coding_test
 
 layout: single
 

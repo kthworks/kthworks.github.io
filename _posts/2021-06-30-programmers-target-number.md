@@ -6,9 +6,7 @@ categories:
 
 tags:
 
-  - Algorithm
-  - DFS(깊이우선탐색)
-  - BFS(너비우선탐색)
+  - coding_test
 
 layout: single
 

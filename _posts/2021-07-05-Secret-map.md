@@ -5,7 +5,7 @@ categories:
   - kakao
 
 tags:
-  - Algorithm
+  - coding_test
 
 
 layout: single
