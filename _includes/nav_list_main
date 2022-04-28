@@ -52,7 +52,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "data_structure" %}
-                        <li><a href="/categories/data_structure" class="">DATA STRUCTURE ({{category[1].size}})</a></li>
+                        <li><a href="/categories/data_structure" class="">자료구조 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
