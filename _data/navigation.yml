@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Home"
-    url: /about/ 
+    url: https://kthworks.github.io
 
   - title: "Categories"
     url: /categories/
@@ -10,7 +10,7 @@ main:
     url: /tags/
 
   - title: "About"
-    url: https://kthworks.github.io
+    url: /about/
 
 
   # - title: "About"
