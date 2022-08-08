@@ -1,10 +1,7 @@
-<span style="color:blue">
-<b>
-Welcome to TAEHAM's blog
-</b>
-</span>
-
 <figure class="half">
-    <img src="/images/Word2Vec/cbow.png" width="275" height="275">
-    <img src="/images/Word2Vec/skipgram.png" width="275" height="275">
+    <img src="/images/home_test.png" width="1000" height="370">
 </figure>
+
+---
+
+## Welcome to TAEHAM's blog !
