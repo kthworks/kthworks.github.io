@@ -1,17 +1,3 @@
-# ---
-# layout: single
-# author_profile: true
-# sidebar_main: true
-# ---
-
----
-title: "Taeham's Coding Blog"
-permalink: /about/
-layout: single
-author_profile: true
----
-
-
 ### **블로그 소개 (About Blog)**  
 
 
