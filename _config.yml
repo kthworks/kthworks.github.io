@@ -21,7 +21,7 @@ subtitle                 : "Study & Share about tech and coding "
 name                     : Taeham
 email                     : #kthwork9934@gmail.com
 description              : #"공부하고, 기록하고, 공유합니다 : )"
-url                      : https://kthworks.github.io
+url                      : https://kthworks.github.io/about
 baseurl                  : ''
 repository               : "kthworks/kthworks.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
