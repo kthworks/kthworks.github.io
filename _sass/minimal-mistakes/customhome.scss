@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Nanum+Gothic&display=swap');
+body {
+    margin: 0;
+}
+
+.background {
+    display: flex;
+    width: 1000px;
+    height: 400px;
+    background-color: #FDF3E7;
+    justify-content: space-between;
+}
+
+.introduction {
+    margin-top: 52px;
+    margin-left: 60px;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    font-family: 'Happy Monkey', cursive;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 24px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.row_button {
+    width: 466px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 36px;
+}
+
+.button {
+    width: 216px;
+    height: 44px;
+    background: rgba(53, 47, 43, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px -1px 4px rgba(255, 255, 255, 0.12), 0px 2px 16px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(4px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 12px;
+    color: #FDF3E7;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 800;
+}
+
+.taeham_img {
+    width: 352px;
+    height: 400px;
+    object-fit: cover;
+}
