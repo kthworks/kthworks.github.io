@@ -13,6 +13,7 @@ sidebar_main: true
     <title>Document</title>
     <link href="/index.css" rel="stylesheet" />
 </head>
+</body>
     <div class="background">
         <div class="introduction">
             <div class="title">Welcome to <br/>TAEHAM’s Blog !</div>
