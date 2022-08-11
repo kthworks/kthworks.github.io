@@ -23,8 +23,8 @@ sidebar_main: true
                 <br/><br/>저에 대해 더욱 궁금하신 분들은 아래 장소들도 방문해주세요 : )
             </div>
             <div class="row_button">
-                <button class="button">Portfolio</button>
-                <button class="button">Github</button>
+                <a href="https://fluffy-game-5c1.notion.site/ML-Researcher-63ea087b87624901b69c72c79b59557a"><button class="button">Portfolio</button></a>
+                <a href="https://github.com/kthworks"><button class="button">Github</button></a>
             </div>
         </div>
         <div>
