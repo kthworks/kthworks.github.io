@@ -1,5 +1,7 @@
 ---
 layout: splash
+author_profile: true
+sidebar_main: true
 permalink: /
 hidden: true
 header:
