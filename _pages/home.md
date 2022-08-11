@@ -15,10 +15,12 @@ feature_row:
   - image_path: /assets/images/mm-responsive-feature.png
     title: "Responsive layouts"
 
-    url: "https:github.com/kthworks"
+    url: "https://github.com/kthworks"
     btn_class: "btn--primary"
     btn_label: "Github"
 
 ---
+
+<div class="hello">hello</div>
 
 {% include feature_row %}
