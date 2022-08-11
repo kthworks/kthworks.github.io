@@ -1,9 +1,9 @@
 ---
-layout: splash
-author_profile: true
-sidebar_main: true
+layout: single
 permalink: /
-hidden: true
+author_profile: true
+sidebar_main: true 
+
 header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/mm-home-page-feature.jpg
@@ -25,7 +25,7 @@ feature_row:
     url: "/docs/layouts/"
     btn_class: "btn--primary"
     btn_label: "Github"
-    
+
 ---
 
 {% include feature_row %}
