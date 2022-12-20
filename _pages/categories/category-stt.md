@@ -1,11 +1,11 @@
 ---
-title: "자료구조"
+title: "음성인식"
 layout: archive
-permalink: categories/data_structure
+permalink: categories/stt
 author_profile: true
 sidebar_main: true
 typora-root-url: ../../
 ---
 
-{% assign posts = site.categories.data_structure %}
+{% assign posts = site.categories.stt %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
