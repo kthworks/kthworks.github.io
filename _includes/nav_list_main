@@ -16,31 +16,16 @@
         <span class="nav__sub-title">STUDY</span>
 
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-
+            
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "ml" %}
-                        <li><a href="/categories/ml" class="">ML ({{category[1].size}})</a></li>
+                    {% if category[0] == "stt" %}
+                        <li><a href="/categories/stt" class="">음성인식 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
-
-	           <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "dl" %}
-                        <li><a href="/categories/dl" class="">DL ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-
-	           <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "math" %}
-                        <li><a href="/categories/math" class="">MATH ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-
+            
+            
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "nlp" %}
@@ -49,14 +34,42 @@
                 {% endfor %}
             </ul>
 
+
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "data_structure" %}
-                        <li><a href="/categories/data_structure" class="">자료구조 ({{category[1].size}})</a></li>
+                    {% if category[0] == "ml" %}
+                        <li><a href="/categories/ml" class="">ML ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            
+
+	    <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "dl" %}
+                        <li><a href="/categories/dl" class="">DL ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            
+
+	    <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "math" %}
+                        <li><a href="/categories/math" class="">MATH ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
 
+
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "cs" %}
+                        <li><a href="/categories/cs" class="">CS관련 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            
 
         <span class="nav__sub-title">Coding Test</span>
 
