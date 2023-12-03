@@ -17,8 +17,8 @@ sidebar_main: true
         <div class="introduction">
             <div class="title">Welcome to <br/>TAEHAM’s Blog !</div>
             <div class="text">
-                AI 개발자, 김태형입니다.
-                <br/><br/>AI를 공부하고, 기록하고, 공유합니다.
+                AI researcher, 김태형입니다.
+                <br/><br/>이곳에서 AI를 기록하고, 공유합니다.
                 <br/><br/>특히 음성 분야에 관심이 많습니다.
                 <br/><br/>저에 대해 더욱 궁금하신 분들은 아래 장소들도 방문해주세요 : )
             </div>
